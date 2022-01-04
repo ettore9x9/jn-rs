@@ -91,7 +91,7 @@ class autonomous_driving():
     n - to insert a new goal"""
 
         # Creates the MoveBaseActionClient
-        self.client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
+        self.client = actionlib.SimpleActionClient('/move_base', MoveBaseAction)
 
     def active_cb(self):
         win_info.addstr(2, 1, "Action Server is processing goal n "+str(self.goal_counter+1)+" ... ")
@@ -172,7 +172,7 @@ class autonomous_driving():
 
 def free_drive():
 
-    pub = rospy.Publisher("cmd_vel", Twist)
+    pub = rospy.Publisher("/cmd_vel", Twist)
     char = 'n'
     straight = 0
     turn = 0
@@ -245,8 +245,6 @@ def drive_assistance():
     client = rospy.ServiceProxy("/command", Command)
     char = 'n'
 
-    srv_com = Command();
-
     curses.noecho()
     curses.cbreak()
 
@@ -269,25 +267,19 @@ def drive_assistance():
             break
 
         elif char == ord('w') or char == ord('s') or char == ord('d') or char == ord('a') or char == ord('x') or char == ord('z'):
-            srv_com.request.command = char
+            resp = client(char)
 
         char = 'n'
 
-        client.call(srv_com)
-
-        msg_linear = "Linear velocity: %.1f" % srv_com.response.linear
+        msg_linear = "Linear velocity: %.1f" % resp.linear
         win_info.addstr(2, 1, msg_linear)
 
-        msg_angular = "Angular velocity: %.1f" % srv_com.response.angular
+        msg_angular = "Angular velocity: %.1f" % resp.angular
         win_info.addstr(3, 1, msg_angular)
         win_info.refresh()
 
-
-    srv_com.request.command = 'x'
-    client.call(srv_com)
-
-    srv_com.request.command = 'z'
-    client.call(srv_com)
+    resp = client(ord('x'))
+    resp = client(ord('z'))
 
     curses.echo()
     curses.nocbreak()

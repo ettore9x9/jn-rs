@@ -86,11 +86,11 @@ int logic( float * sectors ) {
 		   the track. */
 		if ( (sectors[front+1] <= 0.8 * d_br) && (sectors[front-1] >= d_br) ) {
 			ROS_INFO("dist: %.2f, speed: %.2f, free road, turn right", sectors[front], speed);
-            drive( speed, turn );
+            drive( speed, -0.2 );
 
 		} else if ( (sectors[front-1] <= 0.8 * d_br) && (sectors[front+1] >= d_br) ) {
 			ROS_INFO("dist: %.2f, speed: %.2f, free road, turn left", sectors[front], speed);
-            drive( speed, turn );
+            drive( speed, 0.2 );
 
 		} else {
 			ROS_INFO("dist: %.2f, speed: %.2f, free road", sectors[front], speed);
@@ -106,11 +106,11 @@ int logic( float * sectors ) {
 
 		    if ( (sectors[front+j] >= d_br ) && ( sectors[front+j] >= sectors[front-j] ) ){ // First looks left.
 		    	ROS_INFO("dist: %.2f, speed: %.2f, obstacle , turn left", sectors[front], 0.2);
-		        drive( 0.2, 4 );
+		        drive( 0.2, 0.5 );
 		        return 1;
 
 		    } else if ( ( sectors[front-j] >= d_br ) && ( sectors[front-j] >= sectors[front+j] ) ) { // Then looks right.
-		        drive( 0.2, -4 );
+		        drive( 0.2, -0.5 );
 		        ROS_INFO("dist: %.2f, speed: %.2f, obstacle , turn right", sectors[front], 0.2);
 		        return 1;
 		    }
@@ -131,11 +131,11 @@ void integral_logic( float * ranges ) {
 
 		if ( right_area > left_area ) {
 			ROS_INFO("area: %.2f, speed: %.2f, OBSTACLE , turn right", right_area, 0.2);
-			drive( 0.2, -8 );
+			drive( 0.2, -1 );
 
 		} else {
 			ROS_INFO("area: %.2f, speed: %.2f, OBSTACLE , turn left", left_area, 0.2);
-			drive( 0.2, 8 );
+			drive( 0.2, 1 );
 
 		}
 }
@@ -171,20 +171,20 @@ bool server_response( final_assignment::Command::Request &req, final_assignment:
 
 	if ( req.command == 's' && speed >= 0.1 ) {
 		speed = speed - 0.1;
-	}
-	if ( req.command == 'w' ) {
+
+	} else if ( req.command == 'w' ) {
 		speed = speed + 0.1;
-	}
-	if ( req.command == 'x' ) {
+
+	} else if ( req.command == 'x' ) {
 		speed = 0.0;
-	}
-	if ( req.command == 'z' ) {
+
+	} else if ( req.command == 'z' ) {
 		turn = 0.0;
-	}
-	if ( req.command == 'd' ) {
+
+	}else if ( req.command == 'd' ) {
 		turn = turn - 0.1;
-	}
-	if ( req.command == 'a' ) {
+
+	} else if ( req.command == 'a' ) {
 		turn = turn + 0.1;
 	}
 
