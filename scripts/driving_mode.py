@@ -4,7 +4,9 @@ import rospy
 import actionlib
 import curses
 
+from geometry_msgs.msg import Twist
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from final_assignment.srv import Command
 
 title = R"""              _      _       _                                   _
            __| |_ __(_)_   _(_)_ __   __ _   _ __ ___   ___   __| | ___
@@ -20,6 +22,8 @@ modalities = """    1 - Autonomous driving
     3 - Driver assistance
 
 
+
+
     q - for quit
 """
 
@@ -28,6 +32,15 @@ info = """INFO-------------------------------------
 |
 |
 |                        """
+
+moves = """    w - Increase linear speed
+    s - Decrease linear speed
+    a - Increase ang. speed (left)
+    d - Decrease ang. speed (right)
+    z - Stop angular speed
+    x - Stop linear speed
+
+    q - Leave free drive mode"""
 
 def ask_for_goal():
     while True:
@@ -96,6 +109,10 @@ class autonomous_driving():
         self.goal_counter += 1
         self.is_active = False
 
+        win_modes.clear()
+        win_modes.addstr(0, 0, modalities)
+        win_modes.refresh()
+
         if status == 2:
             win_info.addstr(4, 1, "Goal n "+str(self.goal_counter)+" received a cancel request.")
             win_info.refresh()
@@ -153,6 +170,131 @@ class autonomous_driving():
         win_modes.refresh()
 
 
+def free_drive():
+
+    pub = rospy.Publisher("cmd_vel", Twist)
+    char = 'n'
+    straight = 0
+    turn = 0
+    my_vel = Twist();
+
+    curses.noecho()
+    curses.cbreak()
+
+    win_modes.clear()
+    win_modes.addstr(0, 0, moves)
+    win_modes.refresh()
+
+    win_info.clear()
+    win_info.addstr(0, 0, info)
+    win_info.refresh()
+
+    while True:
+
+        char = win_input.getch() # Gets the user command.
+        win_input.clear()
+
+        if char == ord('q'):
+            break
+
+        elif char == ord('w'):
+            straight += 0.1
+
+        elif char == ord('s'):
+            straight += -0.1
+
+        elif char == ord('d'):
+            turn += -0.1
+
+        elif char == ord('a'):
+            turn += 0.1
+
+        elif char == ord('x'):
+            straight = 0
+
+        elif char == ord('z'):
+            turn = 0
+
+        char = 'n'
+
+        msg_linear = "Linear velocity: %.1f" % straight
+        win_info.addstr(2, 1, msg_linear)
+
+        msg_angular = "Angular velocity: %.1f" % turn
+        win_info.addstr(3, 1, msg_angular)
+        win_info.refresh()
+
+        my_vel.linear.x = straight;
+        my_vel.angular.z = turn;
+        pub.publish(my_vel);
+
+    my_vel.linear.x = 0;
+    my_vel.angular.z = 0;
+    pub.publish(my_vel);
+
+    curses.echo()
+    curses.nocbreak()
+
+    win_modes.clear()
+    win_modes.addstr(0, 0, modalities)
+    win_modes.refresh()
+
+
+def drive_assistance():
+
+    client = rospy.ServiceProxy("/command", Command)
+    char = 'n'
+
+    srv_com = Command();
+
+    curses.noecho()
+    curses.cbreak()
+
+    win_modes.clear()
+    win_modes.addstr(0, 0, moves)
+    win_modes.refresh()
+
+    win_info.clear()
+    win_info.addstr(0, 0, info)
+    win_info.refresh()
+
+    rospy.wait_for_service("/command")
+
+    while True:
+
+        char = win_input.getch() # Gets the user command.
+        win_input.clear()
+
+        if char == ord('q'):
+            break
+
+        elif char == ord('w') or char == ord('s') or char == ord('d') or char == ord('a') or char == ord('x') or char == ord('z'):
+            srv_com.request.command = char
+
+        char = 'n'
+
+        client.call(srv_com)
+
+        msg_linear = "Linear velocity: %.1f" % srv_com.response.linear
+        win_info.addstr(2, 1, msg_linear)
+
+        msg_angular = "Angular velocity: %.1f" % srv_com.response.angular
+        win_info.addstr(3, 1, msg_angular)
+        win_info.refresh()
+
+
+    srv_com.request.command = 'x'
+    client.call(srv_com)
+
+    srv_com.request.command = 'z'
+    client.call(srv_com)
+
+    curses.echo()
+    curses.nocbreak()
+
+    win_modes.clear()
+    win_modes.addstr(0, 0, modalities)
+    win_modes.refresh()
 
 
 if __name__=="__main__":
@@ -211,6 +353,8 @@ if __name__=="__main__":
                 win_modes.addstr(1, 0, "-->")
                 win_modes.refresh()
 
+                free_drive()
+
             elif key == ord('3'):
 
                 if ad.is_active is True:
@@ -220,6 +364,8 @@ if __name__=="__main__":
                 win_modes.addstr(0, 0, modalities)
                 win_modes.addstr(2, 0, "-->")
                 win_modes.refresh()
+
+                drive_assistance()
 
             elif key == ord('c') and ad.is_active is True:
                 ad.cancel_goal()
