@@ -18,6 +18,7 @@ void drive( float straight, float turn );
 bool server_response( final_assignment::Command::Request &req, final_assignment::Command::Response &res );
 
 /* GLOBAL VARIABLES */
+bool is_active = false;
 float d_br;                                   // Alert distance for avoiding obstacles, distance break.
 float speed;								  // Speed of the robot.
 float turn;
@@ -33,25 +34,27 @@ void functionCallback ( const sensor_msgs::LaserScan::ConstPtr& msg ) {
 	in this specific topic.
 	*/
 
-	/* Preallocates variables. */
-	float sectors[nsect];             // Closest distance from obstacle in each sector.
-	float ranges[720];                // Copy of the laser_scan ranges.
+	if ( is_active == true ) {
+		/* Preallocates variables. */
+		float sectors[nsect];             // Closest distance from obstacle in each sector.
+		float ranges[720];                // Copy of the laser_scan ranges.
 
-	std::fill_n(sectors, nsect, 10);  // Initializes the values in the sectors float array to 10.
+		std::fill_n(sectors, nsect, 10);  // Initializes the values in the sectors float array to 10.
 
-	/* Copies the ranges values in the base_scan message into an array. */
-	for (int i = 0; i < 720; i++) {
-		ranges[i] = msg -> ranges[i];
-	}
+		/* Copies the ranges values in the base_scan message into an array. */
+		for (int i = 0; i < 720; i++) {
+			ranges[i] = msg -> ranges[i];
+		}
 
-	/* Calls the function scanSector to fill the sectors array. */
-	scanSectors( ranges, sectors );
+		/* Calls the function scanSector to fill the sectors array. */
+		scanSectors( ranges, sectors );
 
-	/* Call the function logic to decide what to do. If it can not take a decision, then call the function
-	   integral_logic. */
-	if ( !logic( sectors ) ) {
+		/* Call the function logic to decide what to do. If it can not take a decision, then call the function
+	   	integral_logic. */
+		if ( !logic( sectors ) ) {
 
-		integral_logic( ranges );
+			integral_logic( ranges );
+		}
 	}
 }
 
@@ -86,11 +89,11 @@ int logic( float * sectors ) {
 		   the track. */
 		if ( (sectors[front+1] <= 0.8 * d_br) && (sectors[front-1] >= d_br) ) {
 			ROS_INFO("dist: %.2f, speed: %.2f, free road, turn right", sectors[front], speed);
-            drive( speed, -0.2 );
+            drive( speed, turn - 0.4 );
 
 		} else if ( (sectors[front-1] <= 0.8 * d_br) && (sectors[front+1] >= d_br) ) {
 			ROS_INFO("dist: %.2f, speed: %.2f, free road, turn left", sectors[front], speed);
-            drive( speed, 0.2 );
+            drive( speed, turn + 0.4 );
 
 		} else {
 			ROS_INFO("dist: %.2f, speed: %.2f, free road", sectors[front], speed);
@@ -186,6 +189,12 @@ bool server_response( final_assignment::Command::Request &req, final_assignment:
 
 	} else if ( req.command == 'a' ) {
 		turn = turn + 0.1;
+
+	} else if (req.command == '0') {
+		is_active = true;
+
+	} else if (req.command == '1') {
+		is_active = false;
 	}
 
 	/* The distance break depends on the velocity, when the robot has an higer speed it increases the d_br variable. */
