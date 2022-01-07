@@ -109,11 +109,11 @@ int logic( float * sectors ) {
 
 		    if ( (sectors[front+j] >= d_br ) && ( sectors[front+j] >= sectors[front-j] ) ){ // First looks left.
 		    	ROS_INFO("dist: %.2f, speed: %.2f, obstacle , turn left", sectors[front], 0.2);
-		        drive( 0.2, 0.5 );
+		        drive( 0.1, 0.5 );
 		        return 1;
 
 		    } else if ( ( sectors[front-j] >= d_br ) && ( sectors[front-j] >= sectors[front+j] ) ) { // Then looks right.
-		        drive( 0.2, -0.5 );
+		        drive( 0.1, -0.5 );
 		        ROS_INFO("dist: %.2f, speed: %.2f, obstacle , turn right", sectors[front], 0.2);
 		        return 1;
 		    }
@@ -134,11 +134,11 @@ void integral_logic( float * ranges ) {
 
 		if ( right_area > left_area ) {
 			ROS_INFO("area: %.2f, speed: %.2f, OBSTACLE , turn right", right_area, 0.2);
-			drive( 0.2, -1 );
+			drive( 0, -1 );
 
 		} else {
 			ROS_INFO("area: %.2f, speed: %.2f, OBSTACLE , turn left", left_area, 0.2);
-			drive( 0.2, 1 );
+			drive( 0, 1 );
 
 		}
 }

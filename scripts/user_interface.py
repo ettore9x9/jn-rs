@@ -46,5 +46,6 @@ class windows_organiser:
         self.win_modes.refresh()
 
     def command_not_valid(self):
+        self.win_request.clear()
         self.win_request.addstr(0, 0, "Command NOT valid")
         self.win_request.refresh()
