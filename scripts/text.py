@@ -32,4 +32,4 @@ wasd = """    w - Increase linear speed
     z - Stop angular speed
     x - Stop linear speed
 
-    q - Leave free drive mode"""
+    b - Back to drive modalities"""

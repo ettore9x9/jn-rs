@@ -24,7 +24,7 @@ def free_drive(ui):
         char = ui.win_input.getch() # Gets the user command.
         ui.clear_input()
 
-        if char == ord('q'):
+        if char == ord('b'):
             ui.clear_modes()
             break
 
@@ -45,8 +45,6 @@ def free_drive(ui):
 
         elif char == ord('z'):
             turn = 0
-
-        char = 'n'
 
         msg_linear = "Linear velocity: %.1f  " % straight
         ui.win_info.addstr(2, 1, msg_linear)
