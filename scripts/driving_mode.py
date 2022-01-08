@@ -23,7 +23,7 @@ def ask_for_goal():
         x = ui.win_input.getstr(0, 0, 3)
         ui.clear_input()
 
-        try:      # If the input can be converten into a float, it exits from the while.
+        try:      # If the input can be converted into a float, it exits from the while.
             fx = float(x)
             break
 
@@ -42,7 +42,7 @@ def ask_for_goal():
         y = ui.win_input.getstr(0, 0, 3)
         ui.clear_input()
 
-        try:      # If the input can be converten into a float, it exits from the while.
+        try:      # If the input can be converted into a float, it exits from the while.
             fy = float(y)
             break
 
@@ -61,7 +61,7 @@ if __name__=="__main__":
         # All the user interface is controlled with this class.
         ui = user_interface.windows_organiser()
 
-        # Init the ros node.
+        # Inits the ros node.
         rospy.init_node('driving_mode')
 
         # The autonomous_driving class is defined in the script autonomous_driving.py
