@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 
+
 title = R"""              _      _       _                                   _
            __| |_ __(_)_   _(_)_ __   __ _   _ __ ___   ___   __| | ___
           / _` | '__| \ \ / / | '_ \ / _` | | '_ ` _ \ / _ \ / _` |/ _ \
@@ -8,6 +9,7 @@ title = R"""              _      _       _                                   _
                                      |___/                              
    
 Choose one of the following driving modality:"""
+
 
 modalities = """    1 - Autonomous driving
     2 - Free drive
@@ -19,11 +21,13 @@ modalities = """    1 - Autonomous driving
     q - for quit
 """
 
+
 info = """INFO-------------------------------------
 | Last command = 
 |
 |
 |                        """
+
 
 wasd = """    w - Increase linear speed
     s - Decrease linear speed

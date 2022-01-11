@@ -1,4 +1,4 @@
-/* Run with: $ roslaunch rt1_assignment2 ass2.launch */
+// Run with: roslaunch final_assignment assignment.launch
 
 /* LIBRARIES */
 #include "ros/ros.h"
@@ -18,10 +18,10 @@ void drive( float straight, float turn );
 bool server_response( final_assignment::Command::Request &req, final_assignment::Command::Response &res );
 
 /* GLOBAL VARIABLES */
-bool is_active = false;
+bool is_active = false;                       // Variable to turn on and off the node.
 float d_br;                                   // Alert distance for avoiding obstacles, distance break.
-float speed;								  // Speed of the robot.
-float turn;
+float speed;								  // Linear speed of the robot.
+float turn;                                   // Angular speed of the robot.
 int nsect = 9; 								  // Number of sectors.
 int front = std::floor( nsect / 2 );          // Index of the frontal sector.
 int sector_nelem = std::floor( 720/nsect );   // Number of laser surveys per sector.

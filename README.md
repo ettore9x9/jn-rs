@@ -26,20 +26,27 @@ Assignment
  * Autonomous driving: the robot must reach a goal autonomously.
  * Free drive: the user controls the speed of the robot directly.
  * Drive assistance: the user moves the robot through a controller that prevents collisions.
+
  The node `driving_mode` switches between these different modalities, as specified by the user.
 
 >The Gazebo simulator reproduces the robot's behavior in the environment, publishing the output of the robot's sensors such as the laser scanner on the topic */scan*, and the odometry on the */odom* topic. The robot is controlled by publishing the velocity on the */cmd_vel* topic.
 
->>This is a general scheme of the nodes involved:
+>This is a general scheme of the nodes involved in the autonomous driving case:
 
 <p align="center">
 <img src="./images/rqt_graph.png">
 </p>
 
+>This is the communication structure between controller nodes:
+
+<p align="center">
+<img src="./images/nodes.png">
+</p>
+
 ### Autonomous driving
 
 >For autonomously driving the robot, the program sends a goal to the action server */move_base*, receiving feedbacks and monitoring the status until the goal is reached or canceled.
- Thanks to the gmapping algorithm, the robot can create a map of the surrounding environment during its tours. The `move_base` node implements the action server to control the robot through the shortest path to reach the given position.
+ Thanks to the *gmapping* algorithm, the robot can create a map of the surrounding environment during its tours. The `move_base` node implements the action server to control the robot through the shortest path to reach the given position.
  The user can also require to cancel the current goal or to send a new one.
  The `driving_mode` node asks the user to insert the goal with the `ask_for_goal` function.
 
@@ -49,12 +56,12 @@ Assignment
 
 ### Driver assistance
 
->The driver assistance modality uses the `driver_assistance` node, described in the second assignment, slightly changed to be turned on and off when it is used or not.
- The `client_drive_assistance.py` file contains the function to send a request to the `driver_assistance` node through the Command service, defined in the `srv` folder.
+>The driver assistance modality uses the `driver_assistance` node, described in the second assignment, slightly changed to be turned on and off when it is used or not. For this reason, the code of the node is written in C++.
+>The `client_drive_assistance.py` file contains the function to send a request to the `driver_assistance` node through the Command service, defined in the `srv` folder.
 
 ### User interface
 
->The user interface of the program is in `user_interface.py`. It is implemented with the `curses` library, dividing the terminal into windows and calling specific functions to print strings and receive user inputs.
+>The user interface of the program is in `user_interface.py`. It is implemented with the *curses* library, dividing the terminal into windows and calling specific functions to print strings and receive user inputs.
  The class `windows_organiser` stores all information about the user interface and implements some modes to make the code slighter.
 
 >This is the user interface for the autonomous driving modality:

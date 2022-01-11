@@ -1,5 +1,7 @@
 #! /usr/bin/env python
 
+# Run with: roslaunch final_assignment assignment.launch
+
 ### STANDARD LIBRARIES ###
 import rospy
 import curses
@@ -61,7 +63,7 @@ if __name__=="__main__":
         # All the user interface is controlled with this class.
         ui = user_interface.windows_organiser()
 
-        # Inits the ros node.
+        # Starts the ros node.
         rospy.init_node('driving_mode')
 
         # The autonomous_driving class is defined in the script autonomous_driving.py

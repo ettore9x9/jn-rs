@@ -4,7 +4,7 @@
   <include file="$(find final_assignment)/launch/simulation_gmapping.launch"/>
   <include file="$(find final_assignment)/launch/move_base.launch"/>
 
-  <node name="driving_mode" pkg="final_assignment" type="driving_mode.py" launch-prefix="xterm -fa 'Monospace' -fs 14 -e"/>
+  <node name="driving_mode" pkg="final_assignment" type="driving_mode.py" required="true" launch-prefix="xterm -fa 'Monospace' -fs 14 -e"/>
 
   <node name="driver_assistance" pkg="final_assignment" type="driver_assistance_node" respawn="true">
     <remap from="/base_scan" to="/scan"/>
