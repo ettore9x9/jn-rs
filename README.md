@@ -40,7 +40,7 @@ Assignment
 >This is the communication structure between controller nodes:
 
 <p align="center">
-<img src="./images/nodes.jpg">
+<img src="./images/nodes.jpg" width=60%>
 </p>
 
 ### Autonomous driving
