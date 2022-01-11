@@ -32,7 +32,7 @@ class autonomous_driving:
     def active_cb(self):
         # Function executed when the communication starts.
 
-        self.goal_counter += 1   #Increments the goal counter.
+        self.goal_counter += 1   # Increments the goal counter.
         self.ui.win_info.addstr(2, 1, "Action Server is processing goal n "+str(self.goal_counter)+"... ")
         self.ui.win_info.refresh()
 

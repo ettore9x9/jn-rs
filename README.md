@@ -40,7 +40,7 @@ Assignment
 >This is the communication structure between controller nodes:
 
 <p align="center">
-<img src="./images/nodes.png">
+<img src="./images/nodes.jpg">
 </p>
 
 ### Autonomous driving
@@ -81,7 +81,7 @@ Assignment
 >This is a global view of the user interface and the environment in the simulation:
 
 <p align="center">
-<img src="./images/global_view.png" width=100%>
+<img src="./images/global_view.jpg" width=100%>
 </p>
 
 - ![#008000](https://via.placeholder.com/15/008000/000000?text=+) robot in the gazebo environment
