@@ -1,0 +1,62 @@
+$>$This R\+OS package aims to control an autonomous robot that wanders into an unknown map, equipped with a laser scanner and knowing its odometry.\hypertarget{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md0}{}\doxysection{Installing and running}\label{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md0}
+$>$Clone this repository in the {\ttfamily src} folder of your R\+OS workspace, compile it with {\ttfamily catkin\+\_\+make}; and run it with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ roslaunch final\_assignment assignment.launch}
+\end{DoxyCode}
+
+
+$>$For compiling and running, you need the {\ttfamily xterm} package; you can install it with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ sudo apt-\/get update}
+\DoxyCodeLine{\$ sudo apt-\/get install xterm}
+\end{DoxyCode}
+\hypertarget{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Assignment}\label{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md1}
+$>$The objective of the assignment is to control the robot with three different driving modalities\+:
+\begin{DoxyItemize}
+\item Autonomous driving\+: the robot must reach a goal autonomously.
+\item Free drive\+: the user controls the speed of the robot directly.
+\item Drive assistance\+: the user moves the robot through a controller that prevents collisions.
+\end{DoxyItemize}
+
+The node {\ttfamily driving\+\_\+mode} switches between these different modalities, as specified by the user.
+
+$>$The Gazebo simulator reproduces the robot\textquotesingle{}s behavior in the environment, publishing the output of the robot\textquotesingle{}s sensors such as the laser scanner on the topic $\ast$/scan$\ast$, and the odometry on the $\ast$/odom$\ast$ topic. The robot is controlled by publishing the velocity on the $\ast$/cmd\+\_\+vel$\ast$ topic.
+
+$>$This is a general scheme of the nodes involved in the autonomous driving case\+:
+
+ 
+
+$>$This is the communication structure between controller nodes\+:
+
+ \hypertarget{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{Autonomous driving}\label{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md2}
+$>$For autonomously driving the robot, the program sends a goal to the action server $\ast$/move\+\_\+base$\ast$, receiving feedbacks and monitoring the status until the goal is reached or canceled. Thanks to the {\itshape gmapping} algorithm, the robot can create a map of the surrounding environment during its tours. The {\ttfamily move\+\_\+base} node implements the action server to control the robot through the shortest path to reach the given position. The user can also require to cancel the current goal or to send a new one. The {\ttfamily driving\+\_\+mode} node asks the user to insert the goal with the {\ttfamily ask\+\_\+for\+\_\+goal} function.\hypertarget{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{Free drive}\label{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md3}
+$>$The function used to implement the free drive modality is in the {\ttfamily free\+\_\+drive.\+py} file. It publishes the robot\textquotesingle{}s speed on the topic $\ast$/cmd\+\_\+vel$\ast$ each time the user inputs a command.\hypertarget{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{Driver assistance}\label{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md4}
+$>$The driver assistance modality uses the {\ttfamily driver\+\_\+assistance} node, described in the second assignment, slightly changed to be turned on and off when it is used or not. For this reason, the code of the node is written in C++. $>$The {\ttfamily client\+\_\+drive\+\_\+assistance.\+py} file contains the function to send a request to the {\ttfamily driver\+\_\+assistance} node through the Command service, defined in the {\ttfamily srv} folder.\hypertarget{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{User interface}\label{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md5}
+$>$The user interface of the program is in {\ttfamily user\+\_\+interface.\+py}. It is implemented with the {\itshape curses} library, dividing the terminal into windows and calling specific functions to print strings and receive user inputs. The class {\ttfamily windows\+\_\+organiser} stores all information about the user interface and implements some modes to make the code slighter.
+
+$>$This is the user interface for the autonomous driving modality\+:
+
+ 
+
+$>$This is the user interface for the free drive and the drive assistance modalities\+:
+
+ \hypertarget{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{Global view}\label{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md6}
+$>$This is a global view of the user interface and the environment in the simulation\+:
+
+ 
+
+
+\begin{DoxyItemize}
+\item  robot in the gazebo environment
+\item  sim-\/rviz robot sensors
+\item  user interface
+\end{DoxyItemize}\hypertarget{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md7}{}\doxysection{Possible improvements}\label{md__home_ettore__desktop__r_t_final_assignment__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Implements a modality to autonomously map all the environment.
+\item Implements an emergency stop service. 
+\end{DoxyItemize}
