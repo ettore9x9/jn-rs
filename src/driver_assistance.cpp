@@ -1,33 +1,34 @@
 /**
-* \file driver_assistance.cpp
-* 
-* \brief Node to drive the robot avoiding obstacles.
-* 
-* \author Ettore Sani
-* 
-* \version 1.0
-* 
-* \date 27/02/2022
-*
-* \details
-*
-* Subscribes to: <BR>
-*  ° /base_scan
-*
-* Publishes to: <BR>
-* ° /my_vel
-*
-* Services : <BR>
-* ° /command
-*
-* Description :
-*
-* This node aims to control the robot in drive assistance mode. Through the service * /command *, the user can 
-* increase or decrease the linear and angular velocity of the robot.
-* Reading data from * /base_scan * the robot can know the distance from obstacles; then it is implemented 
-* a logic that allows the robot to move without hurting them.
-*
-*/
+ * 
+ * \file driver_assistance.cpp
+ * 
+ * \brief Node to drive the robot avoiding obstacles.
+ * 
+ * \author Ettore Sani
+ * 
+ * \version 1.0
+ * 
+ * \date 27/02/2022
+ *
+ * \details
+ *
+ * Subscribes to: <BR>
+ *  ° /base_scan
+ *
+ * Publishes to: <BR>
+ * ° /my_vel
+ *
+ * Services : <BR>
+ * ° /command
+ *
+ * Description :
+ *
+ * This node aims to control the robot in drive assistance mode. Through the service * /command *, the user can 
+ * increase or decrease the linear and angular velocity of the robot.
+ * Reading data from * /base_scan * the robot can know the distance from obstacles; then it is implemented 
+ * a logic that allows the robot to move without hurting them.
+ *
+ */
 
 /* LIBRARIES */
 #include "ros/ros.h"
@@ -59,14 +60,16 @@ ros::Publisher pub;                           ///< Publisher on cmd_vel.
 /* FUNCTIONS */
 void functionCallback ( const sensor_msgs::LaserScan::ConstPtr& msg ) {
 	/**
-	* \brief Function callback for the base_scan subscriber.
-	* 
-	* \param msg defines the message of type LaserScan published on the * /base_scan * topic.
-	*
-	* If the flag is_active is true, this function calls the * scanSectors * function, then the function * logic *
-	* implements the choice made through sectors. 
-	* If the function * logic * does not take any decision, then the * integral_logic * function is called.
-	*/
+	 * 
+	 * \brief Function callback for the base_scan subscriber.
+	 * 
+	 * \param msg defines the message of type LaserScan published on the * /base_scan * topic.
+	 *
+	 * If the flag is_active is true, this function calls the * scanSectors * function, then the function * logic *
+	 * implements the choice made through sectors. 
+	 * If the function * logic * does not take any decision, then the * integral_logic * function is called.
+	 * 
+	 */
 
 	if ( is_active == true ) {
 		/* Preallocates variables. */
@@ -94,15 +97,17 @@ void functionCallback ( const sensor_msgs::LaserScan::ConstPtr& msg ) {
 
 void scanSectors( float * ranges, float * sectors ) {
 	/**
-	* \brief Function to search for the closest obstacle in each sector.
-	* 
-	* \param ranges defines the vector provided by the laser scanner.
-	* 
-	* \param sectors defines the vector to fill.
-	*
-	* It fills sectors with the distance of the closest obstacle in this specific sector, searching in the ranges
-	* vector.
-	*/
+	 * 
+	 * \brief Function to search for the closest obstacle in each sector.
+	 * 
+	 * \param ranges defines the vector provided by the laser scanner.
+	 * 
+	 * \param sectors defines the vector to fill.
+	 *
+	 * It fills sectors with the distance of the closest obstacle in this specific sector, searching in the ranges
+	 * vector.
+	 * 
+	 */
 
     for ( int i = 1; i <= nsect; i++ ) {           // For all sectors.
     	for ( int j = 0; j < sector_nelem; j++) {  // For all elements in each sector.
@@ -119,18 +124,20 @@ void scanSectors( float * ranges, float * sectors ) {
 
 int logic( float * sectors ) {
 	/**
-	* \brief Function that rapresents the robot's logic implementation.
-	* 
-	* \param sectors defines the vector of distances.
-	* 
-	* \return 1 choice made
-    		  0 choice not made
-	*
-	* This function implements the logical part of the code, choosing whether to drive the robot forward or 
-	* to make it turn to avoid obstacles. 
-	* It's based on the information in the sectors vector, so previously filtered by the scanSector function. 
-	* According to the choice made, it calls the drive function to move the robot.
-	*/
+	 * 
+	 * \brief Function that rapresents the robot's logic implementation.
+	 * 
+	 * \param sectors defines the vector of distances.
+	 * 
+	 * \return 1 choice made
+	 *  	   0 choice not made
+	 *
+	 * This function implements the logical part of the code, choosing whether to drive the robot forward or 
+	 * to make it turn to avoid obstacles. 
+	 * It's based on the information in the sectors vector, so previously filtered by the scanSector function. 
+	 * According to the choice made, it calls the drive function to move the robot.
+	 * 
+	 */
 
 	if ( sectors[front] > d_br ) { // The frontal sector is obstacle-free.
 
@@ -174,17 +181,19 @@ int logic( float * sectors ) {
 
 void integral_logic( float * ranges ) {
 	/**
-	* \brief Function to decide where to go when there are obstales all around the robot.
-	* 
-	* \param ranges defines the vector provided by the laser scanner.
-	*
-	* This function implements the second logical part of the code, and it's executed only when the first one 
-	* can not make any choice. It can only turn the robot, and it does it based on the information included in 
-	* the ranges vector. It computes the integral (calling the * integral * function) of the distance on the 
-	* right-side and the left-side of the robot, obtaining the left and right area. 
-	* Lastly, comparing these two values decides where to turn the robot; and calls the * drive * function 
-	* to move it.
-	*/
+	 * 
+	 * \brief Function to decide where to go when there are obstales all around the robot.
+	 * 
+	 * \param ranges defines the vector provided by the laser scanner.
+	 *
+	 * This function implements the second logical part of the code, and it's executed only when the first one 
+	 * can not make any choice. It can only turn the robot, and it does it based on the information included in 
+	 * the ranges vector. It computes the integral (calling the * integral * function) of the distance on the 
+	 * right-side and the left-side of the robot, obtaining the left and right area. 
+	 * Lastly, comparing these two values decides where to turn the robot; and calls the * drive * function 
+	 * to move it.
+	 * 
+	 */
 
 	double right_area = integral( ranges, 0, 360 );   // Right-side free area.
 	double left_area = integral( ranges, 360, 720 );  // Left-side free area.
@@ -202,18 +211,20 @@ void integral_logic( float * ranges ) {
 
 double integral( float * values, int start, int end ) {
 	/**
-	* \brief Function to perform a discrete integral with the trapezium method.
-	* 
-	* \param values defines the vector on which it computes the discrete integral.
-	* 
-	* \param start defines the index of the initial value.
-	* 
-	* \param end defines the index of the final value.
-	* 
-	* \return double with the calculated area.
-	* 
-	* The discrete integral is computed between start and end inclusive.
-	*/
+	 * 
+	 * \brief Function to perform a discrete integral with the trapezium method.
+	 * 
+	 * \param values defines the vector on which it computes the discrete integral.
+	 * 
+	 * \param start defines the index of the initial value.
+	 * 
+	 * \param end defines the index of the final value.
+	 * 
+	 * \return double with the calculated area.
+	 * 
+	 * The discrete integral is computed between start and end inclusive.
+	 * 
+	 */
 
 	double result = 0;
 	for ( int i = start; i < end; i++ ) {
@@ -224,14 +235,16 @@ double integral( float * values, int start, int end ) {
 
 void drive( float straight, float turn ) {
 	/**
-	* \brief Function to drive the robot.
-	* 
-	* \param straight defines the linear velocity.
-	* 
-	* \param turn defines the angular velocity.
-	* 
-	* This function fills the geometry message and publishes it on the topic * /cmd_vel *.
-	*/
+	 * 
+	 * \brief Function to drive the robot.
+	 * 
+	 * \param straight defines the linear velocity.
+	 * 
+	 * \param turn defines the angular velocity.
+	 * 
+	 * This function fills the geometry message and publishes it on the topic * /cmd_vel *.
+	 * 
+	 */
 
 	geometry_msgs::Twist my_vel;
 	my_vel.linear.x = straight;
@@ -241,17 +254,19 @@ void drive( float straight, float turn ) {
 
 bool server_response( final_assignment::Command::Request &req, final_assignment::Command::Response &res ) {
 	/**
-	* \brief Function callback to the * /command * service.
-	* 
-	* \param req defines the service's request.
-	* 
-	* \param res defines the service's response.
-	* 
-	* \return always true.
-	* 
-	* This function increases or decreases the speed of the motor depending on the message received and replies 
-	* with the updated velocity. It also updates the robot's distance break: which is proportional to its speed.
-	*/
+	 * 
+	 * \brief Function callback to the * /command * service.
+	 * 
+	 * \param req defines the service's request.
+	 * 
+	 * \param res defines the service's response.
+	 * 
+	 * \return always true.
+	 * 
+	 * This function increases or decreases the speed of the motor depending on the message received and replies 
+	 * with the updated velocity. It also updates the robot's distance break: which is proportional to its speed.
+	 * 
+	 */
 
 	if ( req.command == 's' && speed >= 0.1 ) {
 		speed = speed - 0.1;
