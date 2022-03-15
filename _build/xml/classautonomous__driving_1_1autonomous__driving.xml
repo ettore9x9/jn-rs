@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classautonomous__driving_1_1autonomous__driving" kind="class" language="Python" prot="public">
+    <compoundname>autonomous_driving::autonomous_driving</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classautonomous__driving_1_1autonomous__driving_1a273ff37835008f368520b0fb1ecf4553" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>autonomous_driving.autonomous_driving::goal_counter</definition>
+        <argsstring></argsstring>
+        <name>goal_counter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="43" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classautonomous__driving_1_1autonomous__driving_1acb3e1b8f356b2092dbd7ae207e52a37d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>autonomous_driving.autonomous_driving::feedback_counter</definition>
+        <argsstring></argsstring>
+        <name>feedback_counter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="44" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classautonomous__driving_1_1autonomous__driving_1a4e04a1b3adfbb58e3cf158aa3f0eab70" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>autonomous_driving.autonomous_driving::is_active</definition>
+        <argsstring></argsstring>
+        <name>is_active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="45" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classautonomous__driving_1_1autonomous__driving_1a18a60df18467d34ab24cbb826c937a7a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>autonomous_driving.autonomous_driving::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="48" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classautonomous__driving_1_1autonomous__driving_1aaa73de6fbd6597d87d0fe6d2df453aa5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>autonomous_driving.autonomous_driving::client</definition>
+        <argsstring></argsstring>
+        <name>client</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="52" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classautonomous__driving_1_1autonomous__driving_1ae54a15045c16368f6e54d0f9c4768f7f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>autonomous_driving.autonomous_driving::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="55" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classautonomous__driving_1_1autonomous__driving_1a4c61819883fb2485a86f5f13bd09e48f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def autonomous_driving.autonomous_driving.__init__</definition>
+        <argsstring>(self, user_interface)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>user_interface</type>
+          <defname>user_interface</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function initialises the autonomous_driving class.
+
+Args:
+   user_interface(windows_organiser): class for printing on the user interface.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="35" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="35" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classautonomous__driving_1_1autonomous__driving_1a456ab1dfd528702f408ec7f1c6d2b3b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def autonomous_driving.autonomous_driving.active_cb</definition>
+        <argsstring>(self)</argsstring>
+        <name>active_cb</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function executed when the communication starts.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="57" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="57" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classautonomous__driving_1_1autonomous__driving_1a3721823d9057a324b954ba78695324f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def autonomous_driving.autonomous_driving.feedback_cb</definition>
+        <argsstring>(self, feedback)</argsstring>
+        <name>feedback_cb</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>feedback</type>
+          <defname>feedback</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function is executed when a feedback is received.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="66" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="66" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classautonomous__driving_1_1autonomous__driving_1ab8decfd71b3b6ffeb84485f2d0b6a424" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def autonomous_driving.autonomous_driving.done_cb</definition>
+        <argsstring>(self, status, result)</argsstring>
+        <name>done_cb</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>status</type>
+          <defname>status</defname>
+        </param>
+        <param>
+          <type>result</type>
+          <defname>result</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function is executed when the communication ends.
+
+Args:
+    status(int): status returned by the action server.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="78" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="78" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classautonomous__driving_1_1autonomous__driving_1a6b4e43838d957feb311a66cb48310d85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def autonomous_driving.autonomous_driving.reach_goal</definition>
+        <argsstring>(self, x, y)</argsstring>
+        <name>reach_goal</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>x</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>y</type>
+          <defname>y</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function sends a goal to the move base node, starting the action client communication.
+
+Args:
+    x(float): x goal position of the robot
+    y(float): y goal position of the robot</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="114" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="114" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classautonomous__driving_1_1autonomous__driving_1a28df164723b3b185879fec9454c2a9d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def autonomous_driving.autonomous_driving.cancel_goal</definition>
+        <argsstring>(self)</argsstring>
+        <name>cancel_goal</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function sends a cancel request to the move_base server.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/autonomous_driving.py" line="144" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="144" bodyend="150"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>CODE ###. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>This class manages the autonomous driving mode, communicating with 
+the /move_base node through action server.</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/autonomous_driving.py" line="30" column="1" bodyfile="scripts/autonomous_driving.py" bodystart="30" bodyend="150"/>
+    <listofallmembers>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1a4c61819883fb2485a86f5f13bd09e48f" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>__init__</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1a456ab1dfd528702f408ec7f1c6d2b3b7" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>active_cb</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1a28df164723b3b185879fec9454c2a9d0" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>cancel_goal</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1aaa73de6fbd6597d87d0fe6d2df453aa5" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>client</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1ab8decfd71b3b6ffeb84485f2d0b6a424" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>done_cb</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1a3721823d9057a324b954ba78695324f5" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>feedback_cb</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1acb3e1b8f356b2092dbd7ae207e52a37d" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>feedback_counter</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1a273ff37835008f368520b0fb1ecf4553" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>goal_counter</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1a4e04a1b3adfbb58e3cf158aa3f0eab70" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>is_active</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1a6b4e43838d957feb311a66cb48310d85" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>reach_goal</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1a18a60df18467d34ab24cbb826c937a7a" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>title</name></member>
+      <member refid="classautonomous__driving_1_1autonomous__driving_1ae54a15045c16368f6e54d0f9c4768f7f" prot="public" virt="non-virtual"><scope>autonomous_driving::autonomous_driving</scope><name>ui</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

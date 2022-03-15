@@ -1,6 +1,18 @@
 #! /usr/bin/env python
 """
-..module
+.. module:: driving_mode
+    :platform: Unix
+    :synopsis: Python module for choosing the driving modality.
+
+.. moduleauthor:: Ettore Sani
+
+This node allows the user to choose the drive modality between:
+:mode:`autonomous_driving` mode
+:mode:`free_drive` mode
+:mode:`drive_assistance` mode
+Using the user interface defined in the :module:`user_interface` module.
+According to the user's choice, it gives the control to the corresponding module, and shows results on screen.
+
 """
 # Run with: roslaunch final_assignment assignment.launch
 
@@ -16,7 +28,13 @@ import client_drive_assistance
 
 ### FUNCTION ###
 def ask_for_goal():
-    # This function asks the user to input the x and the y position of the goal, and returns them as floating point.
+    """This function asks the user to input the x and the y position of the goal, and returns them as floating point.
+
+    Returns:
+       fx(float): x position of the goal.
+       fy(float): y position of the goal.
+
+    """
     while True:
 
         # Asks the user for the x position.
@@ -59,6 +77,12 @@ def ask_for_goal():
 
 ### MAIN ###
 if __name__=="__main__":
+    """
+    This function initializes the user interface, managed with the :class:`windows_organiser` class, 
+    the ROS node and the :class:`autonomous_driving` class. Then waits for the user input and gives
+    the control to the corresponding module.
+
+    """
 
     try:
         # The class windows_organiser is defined in the script user_interface.py

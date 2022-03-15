@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md__r_e_a_d_m_e" kind="page">
+    <compoundname>md_README</compoundname>
+    <title>Robotics simulator on ROS</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>&gt;This ROS package aims to control an autonomous robot that wanders into an unknown map, equipped with a laser scanner and knowing its odometry.</para>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md0">
+<title>Installing and running</title>
+<para>&gt;Clone this repository in the <computeroutput>src</computeroutput> folder of your ROS workspace, compile it with <computeroutput>catkin_make</computeroutput>; and run it with:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">$<sp/>roslaunch<sp/>final_assignment<sp/>assignment.launch</highlight></codeline>
+</programlisting></para>
+<para>&gt;For compiling and running, you need the <computeroutput>xterm</computeroutput> package; you can install it with:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">$<sp/>sudo<sp/>apt-get<sp/>update</highlight></codeline>
+<codeline><highlight class="normal">$<sp/>sudo<sp/>apt-get<sp/>install<sp/>xterm</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md1">
+<title>Assignment</title>
+<para>&gt;The objective of the assignment is to control the robot with three different driving modalities:<itemizedlist>
+<listitem><para>Autonomous driving: the robot must reach a goal autonomously.</para>
+</listitem><listitem><para>Free drive: the user controls the speed of the robot directly.</para>
+</listitem><listitem><para>Drive assistance: the user moves the robot through a controller that prevents collisions.</para>
+</listitem></itemizedlist>
+</para>
+<para>The node <computeroutput><ref refid="namespacedriving__mode" kindref="compound">driving_mode</ref></computeroutput> switches between these different modalities, as specified by the user.</para>
+<para>&gt;The Gazebo simulator reproduces the robot&apos;s behavior in the environment, publishing the output of the robot&apos;s sensors such as the laser scanner on the topic */scan*, and the odometry on the */odom* topic. The robot is controlled by publishing the velocity on the */cmd_vel* topic.</para>
+<para>&gt;This is a general scheme of the nodes involved in the autonomous driving case:</para>
+<para><image type="html" name="rqt_graph.png" inline="yes"></image>
+ </para>
+<para>&gt;This is the communication structure between controller nodes:</para>
+<para><image type="html" name="nodes.jpg" inline="yes"></image>
+ </para>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md2">
+<title>Autonomous driving</title>
+<para>&gt;For autonomously driving the robot, the program sends a goal to the action server */move_base*, receiving feedbacks and monitoring the status until the goal is reached or canceled. Thanks to the <emphasis>gmapping</emphasis> algorithm, the robot can create a map of the surrounding environment during its tours. The <computeroutput>move_base</computeroutput> node implements the action server to control the robot through the shortest path to reach the given position. The user can also require to cancel the current goal or to send a new one. The <computeroutput><ref refid="namespacedriving__mode" kindref="compound">driving_mode</ref></computeroutput> node asks the user to insert the goal with the <computeroutput>ask_for_goal</computeroutput> function.</para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md3">
+<title>Free drive</title>
+<para>&gt;The function used to implement the free drive modality is in the <computeroutput>free_drive.py</computeroutput> file. It publishes the robot&apos;s speed on the topic */cmd_vel* each time the user inputs a command.</para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md4">
+<title>Driver assistance</title>
+<para>&gt;The driver assistance modality uses the <computeroutput>driver_assistance</computeroutput> node, described in the second assignment, slightly changed to be turned on and off when it is used or not. For this reason, the code of the node is written in C++. &gt;The <computeroutput>client_drive_assistance.py</computeroutput> file contains the function to send a request to the <computeroutput>driver_assistance</computeroutput> node through the Command service, defined in the <computeroutput>srv</computeroutput> folder.</para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md5">
+<title>User interface</title>
+<para>&gt;The user interface of the program is in <computeroutput>user_interface.py</computeroutput>. It is implemented with the <emphasis>curses</emphasis> library, dividing the terminal into windows and calling specific functions to print strings and receive user inputs. The class <computeroutput>windows_organiser</computeroutput> stores all information about the user interface and implements some modes to make the code slighter.</para>
+<para>&gt;This is the user interface for the autonomous driving modality:</para>
+<para><image type="html" name="modalities.png" inline="yes"></image>
+ </para>
+<para>&gt;This is the user interface for the free drive and the drive assistance modalities:</para>
+<para><image type="html" name="wasd.png" inline="yes"></image>
+ </para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md6">
+<title>Global view</title>
+<para>&gt;This is a global view of the user interface and the environment in the simulation:</para>
+<para><image type="html" name="global_view.jpg" inline="yes"></image>
+ </para>
+<para><itemizedlist>
+<listitem><para><image type="html" name="000000?text=+" inline="yes"></image>
+ robot in the gazebo environment</para>
+</listitem><listitem><para><image type="html" name="000000?text=+" inline="yes"></image>
+ sim-rviz robot sensors</para>
+</listitem><listitem><para><image type="html" name="000000?text=+" inline="yes"></image>
+ user interface</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md7">
+<title>Possible improvements</title>
+<para><itemizedlist>
+<listitem><para>Implements a modality to autonomously map all the environment.</para>
+</listitem><listitem><para>Implements an emergency stop service. </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

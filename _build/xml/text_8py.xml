@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="text_8py" kind="file" language="Python">
+    <compoundname>text.py</compoundname>
+    <innernamespace refid="namespacetext">text</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacetext" refkind="compound"><highlight class="comment">#!<sp/>/usr/bin/env<sp/>python</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="3"><highlight class="stringliteral">..<sp/>module::<sp/>text</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:platform:<sp/>Unix</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:synopsis:<sp/>Python<sp/>module<sp/>to<sp/>store<sp/>the<sp/>user<sp/>interface<sp/>texts.</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral">..<sp/>moduleauthor::<sp/>Ettore<sp/>Sani</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">title<sp/>=<sp/></highlight><highlight class="stringliteral">R&quot;&quot;&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__|<sp/>|_<sp/>__(_)_<sp/><sp/><sp/>_(_)_<sp/>__<sp/><sp/><sp/>__<sp/>_<sp/><sp/><sp/>_<sp/>__<sp/>___<sp/><sp/><sp/>___<sp/><sp/><sp/>__|<sp/>|<sp/>___</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/<sp/>_`<sp/>|<sp/>&apos;__|<sp/>\<sp/>\<sp/>/<sp/>/<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_`<sp/>|<sp/>|<sp/>&apos;_<sp/>`<sp/>_<sp/>\<sp/>/<sp/>_<sp/>\<sp/>/<sp/>_`<sp/>|/<sp/>_<sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral">=========|<sp/>(_|<sp/>|<sp/>|<sp/><sp/>|<sp/>|\<sp/>V<sp/>/|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>(_)<sp/>|<sp/>(_|<sp/>|<sp/><sp/>__/=======</highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\__,_|_|<sp/><sp/>|_|<sp/>\_/<sp/>|_|_|<sp/>|_|\__,<sp/>|<sp/>|_|<sp/>|_|<sp/>|_|\___/<sp/>\__,_|\___|</highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|___/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral">Choose<sp/>one<sp/>of<sp/>the<sp/>following<sp/>driving<sp/>modality:&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">modalities<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;<sp/><sp/><sp/><sp/>1<sp/>-<sp/>Autonomous<sp/>driving</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>2<sp/>-<sp/>Free<sp/>drive</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>3<sp/>-<sp/>Driver<sp/>assistance</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>q<sp/>-<sp/>for<sp/>quit</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">info<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;INFO-------------------------------------</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral">|<sp/>Last<sp/>command<sp/>=<sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral">|</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral">|</highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">wasd<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;<sp/><sp/><sp/><sp/>w<sp/>-<sp/>Increase<sp/>linear<sp/>speed</highlight></codeline>
+<codeline lineno="40"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>s<sp/>-<sp/>Decrease<sp/>linear<sp/>speed</highlight></codeline>
+<codeline lineno="41"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>a<sp/>-<sp/>Increase<sp/>ang.<sp/>speed<sp/>(left)</highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>d<sp/>-<sp/>Decrease<sp/>ang.<sp/>speed<sp/>(right)</highlight></codeline>
+<codeline lineno="43"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>z<sp/>-<sp/>Stop<sp/>angular<sp/>speed</highlight></codeline>
+<codeline lineno="44"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>x<sp/>-<sp/>Stop<sp/>linear<sp/>speed</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>b<sp/>-<sp/>Back<sp/>to<sp/>drive<sp/>modalities&quot;&quot;&quot;</highlight></codeline>
+    </programlisting>
+    <location file="scripts/text.py"/>
+  </compounddef>
+</doxygen>

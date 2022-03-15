@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceautonomous__driving" kind="namespace" language="Python">
+    <compoundname>autonomous_driving</compoundname>
+    <innerclass refid="classautonomous__driving_1_1autonomous__driving" prot="public">autonomous_driving::autonomous_driving</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: autonomous_driving
+    :platform: Unix
+    :synopsis: Python module for autonomous driving modality.
+
+.. moduleauthor:: Ettore Sani
+
+Action client:
+    /move_base to reach a desired position in space.
+    
+
+This module implements the autonomous driving modality, which allows the robot to reach a specified position in space.
+The program sends a goal to the action server /move_base, receiving feedbacks and monitoring the status until the goal 
+is reached or canceled. Thanks to the gmapping algorithm, the robot can create a map of the surrounding environment 
+during its tours. The move_base node implements the action server to control the robot through the shortest path to 
+reach the given position. The user can also require to cancel the current goal or to send a new one.</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/autonomous_driving.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

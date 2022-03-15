@@ -1,4 +1,17 @@
 #! /usr/bin/env python
+"""
+.. module:: user_interface
+    :platform: Unix
+    :synopsis: Python module for implement the user interface.
+
+.. moduleauthor:: Ettore Sani
+
+This module implements the user interface of the program.
+It is developed with the curses library, dividing the terminal into windows and calling specific functions 
+to print strings and receive user inputs. The class windows_organiser stores all information about the user 
+interface and implements some modes to make the code slighter.
+
+"""
 
 # Run with: roslaunch final_assignment assignment.launch
 
@@ -7,10 +20,13 @@ import text     # Script with some text.
 
 ### CODE ###
 class windows_organiser:
-    # This class manages the user interface, dividing the terminal into windows.
+    """This class manages the user interface, dividing the terminal into windows.
 
+    """
     def __init__(self):
+        """This function initialises the windows_organiser class.
 
+        """
         self.stdscr = curses.initscr()         # Starts the curses standard screen.
         self.stdscr.addstr(0, 0, text.title)   # Prints the title.
         self.stdscr.refresh()                  # Refreshes the screen.
@@ -29,35 +45,47 @@ class windows_organiser:
         self.win_request = curses.newwin(1, 35, 22, 0)   # Window for printing an input request.
 
     def clear_modes(self):
-        # Clears and resets the win_modes.
+        """This function clears the modes window. 
+
+        """
         self.win_modes.clear()
         self.win_modes.addstr(0, 0, text.modalities)
         self.win_modes.refresh()
 
     def clear_info(self):
-        # Clears and reset the win_info.
+        """This function clears the info window. 
+
+        """
         self.win_info.clear()
         self.win_info.addstr(0, 0, text.info)
         self.win_info.refresh()
 
     def clear_input(self):
-        # Clears the win_input.
+        """This function clears the input window. 
+
+        """
         self.win_input.clear()
         self.win_input.refresh()
 
     def clear_request(self):
-        # Clears the win_request.
+        """This function clears the request window. 
+
+        """
         self.win_request.clear()
         self.win_request.refresh()
 
     def set_wasd(self):
-        # Shows into the win_modes the command for directly drive the robot.
+        """This function shows into the win_modes the command for directly drive the robot.
+
+        """
         self.win_modes.clear()
         self.win_modes.addstr(0, 0, text.wasd)
         self.win_modes.refresh()
 
     def command_not_valid(self):
-        # Sends the command not valid message into win_request.
+        """ This function sends the command not valid message into win_request.
+
+        """
         self.win_request.clear()
         self.win_request.addstr(0, 0, "Command NOT valid")
         self.win_request.refresh()

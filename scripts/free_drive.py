@@ -1,5 +1,18 @@
 #! /usr/bin/env python
+"""
+.. module:: free_drive
+    :platform: Unix
+    :synopsis: Python module for implement the free drive modality.
 
+.. moduleauthor:: Ettore Sani
+
+Publish to:
+    /cmd_vel
+
+This module implements the free drive modality, publishing the robot's speed on the topic /cmd_vel 
+each time the user inputs a command, controlling directly the robot.
+
+"""
 # Run with: roslaunch final_assignment assignment.launch
 
 ### LIBRARIES ###
@@ -11,8 +24,12 @@ from geometry_msgs.msg import Twist
 
 ### CODE ###
 def free_drive(ui):
-    # Function to drive directly the robot, controlling the speed publishing on the cmd_vel topic.
+    """This function allows to drive directly the robot, controlling the speed publishing on the cmd_vel topic.
 
+    Args:
+       ui(windows_organiser): class for printing on the user interface.
+
+    """
     # Creates a publisher to the cmd_vel topic.
     pub = rospy.Publisher("/cmd_vel", Twist, queue_size = 1)
 

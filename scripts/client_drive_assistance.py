@@ -1,5 +1,18 @@
 #! /usr/bin/env python
+"""
+.. module:: client_drive_assistance
+    :platform: Unix
+    :synopsis: Python module for implement a client to the drive assistance node.
 
+.. moduleauthor:: Ettore Sani
+
+Client:
+    /command    
+
+This module implements the function to send a request to the driver_assistance node through the Command service, 
+defined in the srv folder.
+
+"""
 # Run with: roslaunch final_assignment assignment.launch
 
 ### LIBRARIES ###
@@ -11,8 +24,13 @@ from final_assignment.srv import Command
 
 ### CODE ###
 def drive_assistance(ui):
-    # Function to drive the robot througha controller that avoids hurting obstacles.
+    """This function allows to drive the robot through a controller that avoids hurting obstacles.
+    It changes terminal features and shows the commands for controlling directly the speed of the robot.
 
+    Args:
+       ui(windows_organiser): class for printing on the user interface.
+
+    """
     # Creates a client to the command service.
     client = rospy.ServiceProxy("/command", Command)
     char = 'n'          # Sets the variable char to a default value.
@@ -20,7 +38,7 @@ def drive_assistance(ui):
     curses.noecho()     # From now on, the terminal does not print the pressed key.
     curses.cbreak()     # From now on, the input does not wait for the enter key.
 
-    ui.set_wasd()       # Shows the commands for the free drive modality.
+    ui.set_wasd()       # Shows the commands for the drive assistance modality.
     ui.clear_info()
 
     # Waits until the command service is active.

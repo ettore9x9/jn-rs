@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="user__interface_8py" kind="file" language="Python">
+    <compoundname>user_interface.py</compoundname>
+    <innerclass refid="classuser__interface_1_1windows__organiser" prot="public">user_interface::windows_organiser</innerclass>
+    <innernamespace refid="namespaceuser__interface">user_interface</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespaceuser__interface" refkind="compound"><highlight class="comment">#!<sp/>/usr/bin/env<sp/>python</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="3"><highlight class="stringliteral">..<sp/>module::<sp/>user_interface</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:platform:<sp/>Unix</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>:synopsis:<sp/>Python<sp/>module<sp/>for<sp/>implement<sp/>the<sp/>user<sp/>interface.</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral">..<sp/>moduleauthor::<sp/>Ettore<sp/>Sani</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral">This<sp/>module<sp/>implements<sp/>the<sp/>user<sp/>interface<sp/>of<sp/>the<sp/>program.</highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral">It<sp/>is<sp/>developed<sp/>with<sp/>the<sp/>curses<sp/>library,<sp/>dividing<sp/>the<sp/>terminal<sp/>into<sp/>windows<sp/>and<sp/>calling<sp/>specific<sp/>functions<sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral">to<sp/>print<sp/>strings<sp/>and<sp/>receive<sp/>user<sp/>inputs.<sp/>The<sp/>class<sp/>windows_organiser<sp/>stores<sp/>all<sp/>information<sp/>about<sp/>the<sp/>user<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral">interface<sp/>and<sp/>implements<sp/>some<sp/>modes<sp/>to<sp/>make<sp/>the<sp/>code<sp/>slighter.</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Run<sp/>with:<sp/>roslaunch<sp/>final_assignment<sp/>assignment.launch</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>curses<sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Library<sp/>for<sp/>printing<sp/>on<sp/>the<sp/>whole<sp/>screen.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>text<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Script<sp/>with<sp/>some<sp/>text.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classuser__interface_1_1windows__organiser" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classuser__interface_1_1windows__organiser" kindref="compound">windows_organiser</ref>:</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;This<sp/>class<sp/>manages<sp/>the<sp/>user<sp/>interface,<sp/>dividing<sp/>the<sp/>terminal<sp/>into<sp/>windows.</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classuser__interface_1_1windows__organiser_1a3a02823167a16c027e3246561cb2d770" kindref="member">__init__</ref>(self):</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;This<sp/>function<sp/>initialises<sp/>the<sp/>windows_organiser<sp/>class.</highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1ace4c8fbc63b63ad5e3ecbb20a10e1c96" kindref="member">stdscr</ref><sp/>=<sp/>curses.initscr()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Starts<sp/>the<sp/>curses<sp/>standard<sp/>screen.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1ace4c8fbc63b63ad5e3ecbb20a10e1c96" kindref="member">stdscr</ref>.addstr(0,<sp/>0,<sp/>text.title)<sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Prints<sp/>the<sp/>title.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1ace4c8fbc63b63ad5e3ecbb20a10e1c96" kindref="member">stdscr</ref>.refresh()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Refreshes<sp/>the<sp/>screen.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Creates<sp/>the<sp/>win_modes<sp/>window<sp/>for<sp/>showing<sp/>the<sp/>available<sp/>commands.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1a3a57d24e688ad0ed87f83c159f266d" kindref="member">win_modes</ref><sp/>=<sp/>curses.newwin(14,<sp/>36,<sp/>9,<sp/>0)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1a3a57d24e688ad0ed87f83c159f266d" kindref="member">win_modes</ref>.addstr(0,<sp/>0,<sp/>text.modalities)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1a3a57d24e688ad0ed87f83c159f266d" kindref="member">win_modes</ref>.refresh()</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Creates<sp/>the<sp/>win_info<sp/>window<sp/>for<sp/>printing<sp/>information.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a043b184ee6dfb22d6966ec5954d9d268" kindref="member">win_info</ref><sp/>=<sp/>curses.newwin(5,<sp/>45,<sp/>19,<sp/>39)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a043b184ee6dfb22d6966ec5954d9d268" kindref="member">win_info</ref>.addstr(0,<sp/>0,<sp/>text.info)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a043b184ee6dfb22d6966ec5954d9d268" kindref="member">win_info</ref>.refresh()</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1d38af991cd5e7304260689e4c0786c6" kindref="member">win_input</ref><sp/>=<sp/>curses.newwin(1,<sp/>5,<sp/>23,<sp/>0)<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Window<sp/>for<sp/>acquiring<sp/>the<sp/>user<sp/>input.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1ad22abcebcb5a21c93695f742e796134a" kindref="member">win_request</ref><sp/>=<sp/>curses.newwin(1,<sp/>35,<sp/>22,<sp/>0)<sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Window<sp/>for<sp/>printing<sp/>an<sp/>input<sp/>request.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classuser__interface_1_1windows__organiser_1a8dd7e6b985150560a5c222bb1742fd9e" kindref="member">clear_modes</ref>(self):</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;This<sp/>function<sp/>clears<sp/>the<sp/>modes<sp/>window.<sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1a3a57d24e688ad0ed87f83c159f266d" kindref="member">win_modes</ref>.clear()</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1a3a57d24e688ad0ed87f83c159f266d" kindref="member">win_modes</ref>.addstr(0,<sp/>0,<sp/>text.modalities)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1a3a57d24e688ad0ed87f83c159f266d" kindref="member">win_modes</ref>.refresh()</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classuser__interface_1_1windows__organiser_1ac4d31cf4e798aa3e3f3cf361babbed66" kindref="member">clear_info</ref>(self):</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;This<sp/>function<sp/>clears<sp/>the<sp/>info<sp/>window.<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a043b184ee6dfb22d6966ec5954d9d268" kindref="member">win_info</ref>.clear()</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a043b184ee6dfb22d6966ec5954d9d268" kindref="member">win_info</ref>.addstr(0,<sp/>0,<sp/>text.info)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a043b184ee6dfb22d6966ec5954d9d268" kindref="member">win_info</ref>.refresh()</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classuser__interface_1_1windows__organiser_1a71850876ae4319c997b03713ca4cf5b0" kindref="member">clear_input</ref>(self):</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;This<sp/>function<sp/>clears<sp/>the<sp/>input<sp/>window.<sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1d38af991cd5e7304260689e4c0786c6" kindref="member">win_input</ref>.clear()</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1d38af991cd5e7304260689e4c0786c6" kindref="member">win_input</ref>.refresh()</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classuser__interface_1_1windows__organiser_1ae5f7262b5ef3651fa5d4edc3f63f9fef" kindref="member">clear_request</ref>(self):</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;This<sp/>function<sp/>clears<sp/>the<sp/>request<sp/>window.<sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1ad22abcebcb5a21c93695f742e796134a" kindref="member">win_request</ref>.clear()</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1ad22abcebcb5a21c93695f742e796134a" kindref="member">win_request</ref>.refresh()</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classuser__interface_1_1windows__organiser_1a9dcfb8f95eaba50f0ece9505b494f125" kindref="member">set_wasd</ref>(self):</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;This<sp/>function<sp/>shows<sp/>into<sp/>the<sp/>win_modes<sp/>the<sp/>command<sp/>for<sp/>directly<sp/>drive<sp/>the<sp/>robot.</highlight></codeline>
+<codeline lineno="79"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1a3a57d24e688ad0ed87f83c159f266d" kindref="member">win_modes</ref>.clear()</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1a3a57d24e688ad0ed87f83c159f266d" kindref="member">win_modes</ref>.addstr(0,<sp/>0,<sp/>text.wasd)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1a1a3a57d24e688ad0ed87f83c159f266d" kindref="member">win_modes</ref>.refresh()</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classuser__interface_1_1windows__organiser_1aa363c092f47396eab84e1a5ce8ebe098" kindref="member">command_not_valid</ref>(self):</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;<sp/>This<sp/>function<sp/>sends<sp/>the<sp/>command<sp/>not<sp/>valid<sp/>message<sp/>into<sp/>win_request.</highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1ad22abcebcb5a21c93695f742e796134a" kindref="member">win_request</ref>.clear()</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1ad22abcebcb5a21c93695f742e796134a" kindref="member">win_request</ref>.addstr(0,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Command<sp/>NOT<sp/>valid&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classuser__interface_1_1windows__organiser_1ad22abcebcb5a21c93695f742e796134a" kindref="member">win_request</ref>.refresh()</highlight></codeline>
+    </programlisting>
+    <location file="scripts/user_interface.py"/>
+  </compounddef>
+</doxygen>

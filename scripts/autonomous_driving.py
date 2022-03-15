@@ -1,5 +1,22 @@
 #! /usr/bin/env python
+"""
+.. module:: autonomous_driving
+    :platform: Unix
+    :synopsis: Python module for autonomous driving modality.
 
+.. moduleauthor:: Ettore Sani
+
+Action client:
+    /move_base to reach a desired position in space.
+    
+
+This module implements the autonomous driving modality, which allows the robot to reach a specified position in space.
+The program sends a goal to the action server /move_base, receiving feedbacks and monitoring the status until the goal 
+is reached or canceled. Thanks to the gmapping algorithm, the robot can create a map of the surrounding environment 
+during its tours. The move_base node implements the action server to control the robot through the shortest path to 
+reach the given position. The user can also require to cancel the current goal or to send a new one.
+
+"""
 # Run with: roslaunch final_assignment assignment.launch
 
 ### LIBRARIES ###
@@ -11,9 +28,17 @@ from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 
 ### CODE ###
 class autonomous_driving:
-    # This class manages the autonomous driving mode, communicating with the move_base node through action server.
+    """This class manages the autonomous driving mode, communicating with 
+    the /move_base node through action server.
 
+    """
     def __init__(self, user_interface):
+        """This function initialises the autonomous_driving class.
+
+        Args:
+           user_interface(windows_organiser): class for printing on the user interface.
+
+        """
 
         self.goal_counter = 0       # Stores the number of the goal.
         self.feedback_counter = 0   # Stores the number of feedback received.
@@ -30,16 +55,18 @@ class autonomous_driving:
         self.ui = user_interface
 
     def active_cb(self):
-        # Function executed when the communication starts.
+        """This function executed when the communication starts.
 
+        """
         self.goal_counter += 1   # Increments the goal counter.
         self.ui.win_info.addstr(2, 1, "Action Server is processing goal n "+str(self.goal_counter)+"... ")
         self.ui.win_info.refresh()
 
 
     def feedback_cb(self, feedback):
-        # Function executed when a feedback is received.
+        """This function is executed when a feedback is received.
 
+        """
         self.feedback_counter += 1   # Increments the feedback counter.
 
         # Prints on the info window.
@@ -49,8 +76,12 @@ class autonomous_driving:
 
 
     def done_cb(self, status, result):
-        # Function executed when the communication ends.
-        
+        """This function is executed when the communication ends.
+
+        Args:
+            status(int): status returned by the action server.
+
+        """
         self.is_active = False   # The action client communication is not active.
         self.ui.clear_modes()    # Clears the mode windows, c and n commands are no more available.
 
@@ -81,8 +112,13 @@ class autonomous_driving:
             return
 
     def reach_goal(self, x, y):
-        # This function sends a goal to the move base node, starting the action client communication.
+        """This function sends a goal to the move base node, starting the action client communication.
 
+        Args:
+            x(float): x goal position of the robot
+            y(float): y goal position of the robot
+
+        """
         self.is_active = True   # Processing the goal.
 
         # Waits until the action server has started.
@@ -106,7 +142,9 @@ class autonomous_driving:
         self.client.send_goal(goal, self.done_cb, self.active_cb, self.feedback_cb)
 
     def cancel_goal(self):
-        # This function sends a cancel request to the move_base server.
+        """This function sends a cancel request to the move_base server.
+
+        """
         self.is_active = False
         self.client.cancel_goal()
         self.ui.clear_modes()

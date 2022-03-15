@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacefree__drive" kind="namespace" language="Python">
+    <compoundname>free_drive</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacefree__drive_1a9b0e5953f6f473b8eccb3e541ff63f3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def free_drive.free_drive</definition>
+        <argsstring>(ui)</argsstring>
+        <name>free_drive</name>
+        <param>
+          <type>ui</type>
+          <defname>ui</defname>
+        </param>
+        <briefdescription>
+<para>CODE ###. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function allows to drive directly the robot, controlling the speed publishing on the cmd_vel topic.
+
+Args:
+   ui(windows_organiser): class for printing on the user interface.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/free_drive.py" line="26" column="1" bodyfile="scripts/free_drive.py" bodystart="26" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: free_drive
+    :platform: Unix
+    :synopsis: Python module for implement the free drive modality.
+
+.. moduleauthor:: Ettore Sani
+
+Publish to:
+    /cmd_vel
+
+This module implements the free drive modality, publishing the robot&apos;s speed on the topic /cmd_vel 
+each time the user inputs a command, controlling directly the robot.</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/free_drive.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>
