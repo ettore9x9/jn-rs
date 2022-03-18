@@ -458,11 +458,11 @@ This function increases or decreases the speed of the motor depending on the mes
 <simplesect kind="date"><para>27/02/2022</para>
 </simplesect>
 Subscribes to: <linebreak/>
- ° /base_scan</para>
+ /base_scan</para>
 <para>Publishes to: <linebreak/>
- ° /my_vel</para>
+ /my_vel</para>
 <para>Services : <linebreak/>
- ° /command</para>
+ /command</para>
 <para>Description :</para>
 <para>This node aims to control the robot in drive assistance mode. Through the service * /command *, the user can increase or decrease the linear and angular velocity of the robot. Reading data from * /base_scan * the robot can know the distance from obstacles; then it is implemented a logic that allows the robot to move without hurting them. </para>
     </detaileddescription>

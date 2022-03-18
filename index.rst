@@ -23,49 +23,35 @@ Indices and tables
 
 Driving Modality Module
 =======================
-
 .. automodule:: scripts.driving_mode
-
-:members:
+   :members:
 
 Autonomous Driving Module
 =========================
-
 .. automodule:: scripts.autonomous_driving
-
-:members:
+   :members:
 
 Client Driver Assistance Module
 ===============================
-
 .. automodule:: scripts.client_drive_assistance
-
-:members:
+   :members:
 
 Free Drive Module
 =================
-
-.. automodule:: script.free_drive
-
-:members:
+.. automodule:: scripts.free_drive
+   :members:
 
 Text Module
 ===========
-
-.. automodule:: script.text
-
-:members:
+.. automodule:: scripts.text
+   :members:
 
 User Interface Module
 =====================
-
-.. automodule:: script.user_interface
-
-:members:
+.. automodule:: scripts.user_interface
+   :members:
 
 Driver Assistance Node
 ======================
-
 .. doxygenfile:: driver_assistance.cpp
-
-:project: rt2_assignment
+   :project: rt2_assignment

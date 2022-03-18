@@ -43,7 +43,7 @@
 <li><a class="reference internal" href="#autonomous-driving-module">Autonomous Driving Module</a></li>
 <li><a class="reference internal" href="#client-driver-assistance-module">Client Driver Assistance Module</a></li>
 <li><a class="reference internal" href="#free-drive-module">Free Drive Module</a></li>
-<li><a class="reference internal" href="#text-module">Text Module</a></li>
+<li><a class="reference internal" href="#module-scripts.text">Text Module</a></li>
 <li><a class="reference internal" href="#user-interface-module">User Interface Module</a></li>
 <li><a class="reference internal" href="#driver-assistance-node">Driver Assistance Node</a></li>
 </ul>
@@ -89,51 +89,27 @@
 </div>
 <div class="section" id="driving-modality-module">
 <h2>Driving Modality Module<a class="headerlink" href="#driving-modality-module" title="Permalink to this headline"></a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">members</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
 </div>
 <div class="section" id="autonomous-driving-module">
 <h2>Autonomous Driving Module<a class="headerlink" href="#autonomous-driving-module" title="Permalink to this headline"></a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">members</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
 </div>
 <div class="section" id="client-driver-assistance-module">
 <h2>Client Driver Assistance Module<a class="headerlink" href="#client-driver-assistance-module" title="Permalink to this headline"></a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">members</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
 </div>
 <div class="section" id="free-drive-module">
 <h2>Free Drive Module<a class="headerlink" href="#free-drive-module" title="Permalink to this headline"></a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">members</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
 </div>
-<div class="section" id="text-module">
-<h2>Text Module<a class="headerlink" href="#text-module" title="Permalink to this headline"></a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">members</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</div>
+<div class="section" id="module-scripts.text">
+<span id="text-module"></span><h2>Text Module<a class="headerlink" href="#module-scripts.text" title="Permalink to this headline"></a></h2>
+<span class="target" id="module-text"></span></div>
 <div class="section" id="user-interface-module">
 <h2>User Interface Module<a class="headerlink" href="#user-interface-module" title="Permalink to this headline"></a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">members</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
 </div>
 <div class="section" id="driver-assistance-node">
 <h2>Driver Assistance Node<a class="headerlink" href="#driver-assistance-node" title="Permalink to this headline"></a></h2>
 <p>Node to drive the robot avoiding obstacles. </p>
 <p><p>Subscribes to:</p>
-<p>° /base_scan</p>
+<p>/base_scan</p>
 <dl class="simple">
 <dt><strong>Author</strong></dt><dd><p>Ettore Sani</p>
 </dd>
@@ -144,10 +120,10 @@
 </dl>
 </p>
 <p><p>Publishes to:</p>
-<p>° /my_vel</p>
+<p>/my_vel</p>
 </p>
 <p><p>Services :</p>
-<p>° /command</p>
+<p>/command</p>
 </p>
 <p>Description :</p>
 <p>This node aims to control the robot in drive assistance mode. Through the service * /command *, the user can increase or decrease the linear and angular velocity of the robot. Reading data from * /base_scan * the robot can know the distance from obstacles; then it is implemented a logic that allows the robot to move without hurting them. </p>
@@ -245,11 +221,6 @@
 </dd></dl>
 
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">project</dt>
-<dd class="field-odd"><p>rt2_assignment</p>
-</dd>
-</dl>
 </div>
 </div>
 

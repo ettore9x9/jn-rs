@@ -13,13 +13,13 @@
  * \details
  *
  * Subscribes to: <BR>
- *  ° /base_scan
+ *  /base_scan
  *
  * Publishes to: <BR>
- * ° /my_vel
+ * /my_vel
  *
  * Services : <BR>
- * ° /command
+ * /command
  *
  * Description :
  *
