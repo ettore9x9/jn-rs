@@ -16,6 +16,8 @@ import sys
 
 sys.path.insert(0, os.path.abspath('.'))
 
+sys.path.insert(0, os.path.abspath('./scripts'))
+
 subprocess.call('doxygen Doxyfile.in', shell=True)
 
 
@@ -78,9 +80,6 @@ html_static_path = ['_static']
 
 
 # -- Options for intersphinx extension ---------------------------------------
-
-# Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
 
 
 # -- Options for todo extension ----------------------------------------------

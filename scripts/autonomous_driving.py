@@ -8,7 +8,6 @@
 
 Action client:
     /move_base to reach a desired position in space.
-    
 
 This module implements the autonomous driving modality, which allows the robot to reach a specified position in space.
 The program sends a goal to the action server /move_base, receiving feedbacks and monitoring the status until the goal 

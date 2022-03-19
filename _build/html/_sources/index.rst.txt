@@ -21,37 +21,53 @@ Indices and tables
 * :ref:`search`
 
 
-Driving Modality Module
-=======================
+Driving Modality Module :mod:`driving_modality`
+-----------------------------------------------
 .. automodule:: scripts.driving_mode
    :members:
+   :undoc-members:
+   :show-inheritance:
 
-Autonomous Driving Module
-=========================
+Autonomous Driving Module :mod:`autonomous_driving`
+---------------------------------------------------
 .. automodule:: scripts.autonomous_driving
    :members:
+   :undoc-members:
+   :show-inheritance:
 
-Client Driver Assistance Module
-===============================
+Drive Assistance Module :mod:`client_driver_assistance`
+-------------------------------------------------------
 .. automodule:: scripts.client_drive_assistance
    :members:
+   :undoc-members:
+   :show-inheritance:
 
-Free Drive Module
-=================
+
+Free Drive Module :mod:`free_drive`
+-----------------------------------
 .. automodule:: scripts.free_drive
    :members:
+   :undoc-members:
+   :show-inheritance:
 
-Text Module
-===========
+
+Text Module :mod:`text`
+-----------------------
 .. automodule:: scripts.text
    :members:
+   :undoc-members:
+   :show-inheritance:
 
-User Interface Module
-=====================
+
+User Interface Module :mod:`user_interface`
+-------------------------------------------
 .. automodule:: scripts.user_interface
    :members:
+   :undoc-members:
+   :show-inheritance:
 
-Driver Assistance Node
-======================
+
+Driver Assistance Node :mod:`driver_assistance`
+-----------------------------------------------
 .. doxygenfile:: driver_assistance.cpp
    :project: rt2_assignment

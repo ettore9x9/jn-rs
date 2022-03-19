@@ -39,15 +39,15 @@
 </sect2>
 <sect2 id="md__r_e_a_d_m_e_1autotoc_md3">
 <title>Free drive</title>
-<para>&gt;The function used to implement the free drive modality is in the <computeroutput>free_drive.py</computeroutput> file. It publishes the robot&apos;s speed on the topic */cmd_vel* each time the user inputs a command.</para>
+<para>&gt;The function used to implement the free drive modality is in the <computeroutput><ref refid="free__drive_8py" kindref="compound">free_drive.py</ref></computeroutput> file. It publishes the robot&apos;s speed on the topic */cmd_vel* each time the user inputs a command.</para>
 </sect2>
 <sect2 id="md__r_e_a_d_m_e_1autotoc_md4">
 <title>Driver assistance</title>
-<para>&gt;The driver assistance modality uses the <computeroutput>driver_assistance</computeroutput> node, described in the second assignment, slightly changed to be turned on and off when it is used or not. For this reason, the code of the node is written in C++. &gt;The <computeroutput>client_drive_assistance.py</computeroutput> file contains the function to send a request to the <computeroutput>driver_assistance</computeroutput> node through the Command service, defined in the <computeroutput>srv</computeroutput> folder.</para>
+<para>&gt;The driver assistance modality uses the <computeroutput>driver_assistance</computeroutput> node, described in the second assignment, slightly changed to be turned on and off when it is used or not. For this reason, the code of the node is written in C++. &gt;The <computeroutput><ref refid="client__drive__assistance_8py" kindref="compound">client_drive_assistance.py</ref></computeroutput> file contains the function to send a request to the <computeroutput>driver_assistance</computeroutput> node through the Command service, defined in the <computeroutput>srv</computeroutput> folder.</para>
 </sect2>
 <sect2 id="md__r_e_a_d_m_e_1autotoc_md5">
 <title>User interface</title>
-<para>&gt;The user interface of the program is in <computeroutput>user_interface.py</computeroutput>. It is implemented with the <emphasis>curses</emphasis> library, dividing the terminal into windows and calling specific functions to print strings and receive user inputs. The class <computeroutput>windows_organiser</computeroutput> stores all information about the user interface and implements some modes to make the code slighter.</para>
+<para>&gt;The user interface of the program is in <computeroutput><ref refid="user__interface_8py" kindref="compound">user_interface.py</ref></computeroutput>. It is implemented with the <emphasis>curses</emphasis> library, dividing the terminal into windows and calling specific functions to print strings and receive user inputs. The class <computeroutput>windows_organiser</computeroutput> stores all information about the user interface and implements some modes to make the code slighter.</para>
 <para>&gt;This is the user interface for the autonomous driving modality:</para>
 <para><image type="html" name="modalities.png" inline="yes"></image>
  </para>

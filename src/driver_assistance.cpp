@@ -23,9 +23,9 @@
  *
  * Description :
  *
- * This node aims to control the robot in drive assistance mode. Through the service * /command *, the user can 
+ * This node aims to control the robot in drive assistance mode. Through the service * /command*, the user can 
  * increase or decrease the linear and angular velocity of the robot.
- * Reading data from * /base_scan * the robot can know the distance from obstacles; then it is implemented 
+ * Reading data from * /base_scan* the robot can know the distance from obstacles; then it is implemented 
  * a logic that allows the robot to move without hurting them.
  *
  */
@@ -63,11 +63,11 @@ void functionCallback ( const sensor_msgs::LaserScan::ConstPtr& msg ) {
 	 * 
 	 * \brief Function callback for the base_scan subscriber.
 	 * 
-	 * \param msg defines the message of type LaserScan published on the * /base_scan * topic.
+	 * \param msg defines the message of type LaserScan published on the * /base_scan* topic.
 	 *
-	 * If the flag is_active is true, this function calls the * scanSectors * function, then the function * logic *
+	 * If the flag is_active is true, this function calls the * scanSectors * function, then the function *logic*
 	 * implements the choice made through sectors. 
-	 * If the function * logic * does not take any decision, then the * integral_logic * function is called.
+	 * If the function *logic* does not take any decision, then the *integral_logic* function is called.
 	 * 
 	 */
 
@@ -188,7 +188,7 @@ void integral_logic( float * ranges ) {
 	 *
 	 * This function implements the second logical part of the code, and it's executed only when the first one 
 	 * can not make any choice. It can only turn the robot, and it does it based on the information included in 
-	 * the ranges vector. It computes the integral (calling the * integral * function) of the distance on the 
+	 * the ranges vector. It computes the integral (calling the *integral* function) of the distance on the 
 	 * right-side and the left-side of the robot, obtaining the left and right area. 
 	 * Lastly, comparing these two values decides where to turn the robot; and calls the * drive * function 
 	 * to move it.

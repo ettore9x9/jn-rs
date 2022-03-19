@@ -38,14 +38,16 @@
               <!-- Local TOC -->
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Welcome to rt2_assignment’s documentation!</a><ul>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-<li><a class="reference internal" href="#driving-modality-module">Driving Modality Module</a></li>
-<li><a class="reference internal" href="#autonomous-driving-module">Autonomous Driving Module</a></li>
-<li><a class="reference internal" href="#client-driver-assistance-module">Client Driver Assistance Module</a></li>
-<li><a class="reference internal" href="#free-drive-module">Free Drive Module</a></li>
-<li><a class="reference internal" href="#module-scripts.text">Text Module</a></li>
-<li><a class="reference internal" href="#user-interface-module">User Interface Module</a></li>
-<li><a class="reference internal" href="#driver-assistance-node">Driver Assistance Node</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
+<li><a class="reference internal" href="#module-scripts.driving_mode">Driving Modality Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">driving_modality</span></code></a></li>
+<li><a class="reference internal" href="#module-scripts.autonomous_driving">Autonomous Driving Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">autonomous_driving</span></code></a></li>
+<li><a class="reference internal" href="#module-scripts.client_drive_assistance">Drive Assistance Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">client_driver_assistance</span></code></a></li>
+<li><a class="reference internal" href="#module-scripts.free_drive">Free Drive Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">free_drive</span></code></a></li>
+<li><a class="reference internal" href="#module-scripts.text">Text Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code></a></li>
+<li><a class="reference internal" href="#module-scripts.user_interface">User Interface Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">user_interface</span></code></a></li>
+<li><a class="reference internal" href="#driver-assistance-node-driver-assistance">Driver Assistance Node <code class="xref py py-mod docutils literal notranslate"><span class="pre">driver_assistance</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -86,27 +88,192 @@
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+<div class="section" id="module-scripts.driving_mode">
+<span id="driving-modality-module-driving-modality"></span><h3>Driving Modality Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">driving_modality</span></code><a class="headerlink" href="#module-scripts.driving_mode" title="Permalink to this headline"></a></h3>
+<span class="target" id="module-driving_mode"></span><p>This node allows the user to choose the drive modality between:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#module-autonomous_driving" title="autonomous_driving: Python module for autonomous driving modality. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">autonomous_driving</span></code></a></p></li>
+<li><p><a class="reference internal" href="#module-free_drive" title="free_drive: Python module for implement the free drive modality. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">free_drive</span></code></a></p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">driver_assistance</span></code></p></li>
+</ul>
+<p>It uses the user interface defined in the <a class="reference internal" href="#module-user_interface" title="user_interface: Python module for implement the user interface. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">user_interface</span></code></a> module.
+According to the user’s choice, it gives the control to the corresponding module, and shows results on screen.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.driving_mode.ask_for_goal">
+<span class="sig-prename descclassname"><span class="pre">scripts.driving_mode.</span></span><span class="sig-name descname"><span class="pre">ask_for_goal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/driving_mode.html#ask_for_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.driving_mode.ask_for_goal" title="Permalink to this definition"></a></dt>
+<dd><p>This function asks the user to input the x and the y position of the goal, and returns them as floating point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>x position of the goal.
+fy(float): y position of the goal.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>fx(<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="driving-modality-module">
-<h2>Driving Modality Module<a class="headerlink" href="#driving-modality-module" title="Permalink to this headline"></a></h2>
+<div class="section" id="module-scripts.autonomous_driving">
+<span id="autonomous-driving-module-autonomous-driving"></span><h3>Autonomous Driving Module <a class="reference internal" href="#module-autonomous_driving" title="autonomous_driving: Python module for autonomous driving modality. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">autonomous_driving</span></code></a><a class="headerlink" href="#module-scripts.autonomous_driving" title="Permalink to this headline"></a></h3>
+<span class="target" id="module-autonomous_driving"></span><dl class="simple">
+<dt>Action client:</dt><dd><p>/move_base to reach a desired position in space.</p>
+</dd>
+</dl>
+<p>This module implements the autonomous driving modality, which allows the robot to reach a specified position in space.
+The program sends a goal to the action server /move_base, receiving feedbacks and monitoring the status until the goal
+is reached or canceled. Thanks to the gmapping algorithm, the robot can create a map of the surrounding environment
+during its tours. The move_base node implements the action server to control the robot through the shortest path to
+reach the given position. The user can also require to cancel the current goal or to send a new one.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.autonomous_driving.</span></span><span class="sig-name descname"><span class="pre">autonomous_driving</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_interface</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This class manages the autonomous driving mode, communicating with
+the /move_base node through action server.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.active_cb">
+<span class="sig-name descname"><span class="pre">active_cb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.active_cb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.active_cb" title="Permalink to this definition"></a></dt>
+<dd><p>This function executed when the communication starts.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.cancel_goal">
+<span class="sig-name descname"><span class="pre">cancel_goal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.cancel_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.cancel_goal" title="Permalink to this definition"></a></dt>
+<dd><p>This function sends a cancel request to the move_base server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.done_cb">
+<span class="sig-name descname"><span class="pre">done_cb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.done_cb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.done_cb" title="Permalink to this definition"></a></dt>
+<dd><p>This function is executed when the communication ends.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – status returned by the action server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.feedback_cb">
+<span class="sig-name descname"><span class="pre">feedback_cb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feedback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.feedback_cb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.feedback_cb" title="Permalink to this definition"></a></dt>
+<dd><p>This function is executed when a feedback is received.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.reach_goal">
+<span class="sig-name descname"><span class="pre">reach_goal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.reach_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.reach_goal" title="Permalink to this definition"></a></dt>
+<dd><p>This function sends a goal to the move base node, starting the action client communication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – x goal position of the robot</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – y goal position of the robot</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="autonomous-driving-module">
-<h2>Autonomous Driving Module<a class="headerlink" href="#autonomous-driving-module" title="Permalink to this headline"></a></h2>
+<div class="section" id="module-scripts.client_drive_assistance">
+<span id="drive-assistance-module-client-driver-assistance"></span><h3>Drive Assistance Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">client_driver_assistance</span></code><a class="headerlink" href="#module-scripts.client_drive_assistance" title="Permalink to this headline"></a></h3>
+<span class="target" id="module-client_drive_assistance"></span><dl class="simple">
+<dt>Client:</dt><dd><p>/command</p>
+</dd>
+</dl>
+<p>This module implements the function to send a request to the driver_assistance node through the Command service,
+defined in the srv folder.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.client_drive_assistance.drive_assistance">
+<span class="sig-prename descclassname"><span class="pre">scripts.client_drive_assistance.</span></span><span class="sig-name descname"><span class="pre">drive_assistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ui</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/client_drive_assistance.html#drive_assistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.client_drive_assistance.drive_assistance" title="Permalink to this definition"></a></dt>
+<dd><p>This function allows to drive the robot through a controller that avoids hurting obstacles.
+It changes terminal features and shows the commands for controlling directly the speed of the robot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ui</strong> (<a class="reference internal" href="#scripts.user_interface.windows_organiser" title="scripts.user_interface.windows_organiser"><em>windows_organiser</em></a>) – class for printing on the user interface.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="client-driver-assistance-module">
-<h2>Client Driver Assistance Module<a class="headerlink" href="#client-driver-assistance-module" title="Permalink to this headline"></a></h2>
-</div>
-<div class="section" id="free-drive-module">
-<h2>Free Drive Module<a class="headerlink" href="#free-drive-module" title="Permalink to this headline"></a></h2>
+<div class="section" id="module-scripts.free_drive">
+<span id="free-drive-module-free-drive"></span><h3>Free Drive Module <a class="reference internal" href="#module-free_drive" title="free_drive: Python module for implement the free drive modality. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">free_drive</span></code></a><a class="headerlink" href="#module-scripts.free_drive" title="Permalink to this headline"></a></h3>
+<span class="target" id="module-free_drive"></span><dl class="simple">
+<dt>Publish to:</dt><dd><p>/cmd_vel</p>
+</dd>
+</dl>
+<p>This module implements the free drive modality, publishing the robot’s speed on the topic /cmd_vel
+each time the user inputs a command, controlling directly the robot.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.free_drive.free_drive">
+<span class="sig-prename descclassname"><span class="pre">scripts.free_drive.</span></span><span class="sig-name descname"><span class="pre">free_drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ui</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/free_drive.html#free_drive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.free_drive.free_drive" title="Permalink to this definition"></a></dt>
+<dd><p>This function allows to drive directly the robot, controlling the speed publishing on the cmd_vel topic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ui</strong> (<a class="reference internal" href="#scripts.user_interface.windows_organiser" title="scripts.user_interface.windows_organiser"><em>windows_organiser</em></a>) – class for printing on the user interface.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-scripts.text">
-<span id="text-module"></span><h2>Text Module<a class="headerlink" href="#module-scripts.text" title="Permalink to this headline"></a></h2>
-<span class="target" id="module-text"></span></div>
-<div class="section" id="user-interface-module">
-<h2>User Interface Module<a class="headerlink" href="#user-interface-module" title="Permalink to this headline"></a></h2>
+<span id="text-module-text"></span><h3>Text Module <a class="reference internal" href="#module-text" title="text: Python module to store the user interface texts. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code></a><a class="headerlink" href="#module-scripts.text" title="Permalink to this headline"></a></h3>
+<span class="target" id="module-text"></span><p>This module stores the text used for the graphics of the user interface.</p>
 </div>
-<div class="section" id="driver-assistance-node">
-<h2>Driver Assistance Node<a class="headerlink" href="#driver-assistance-node" title="Permalink to this headline"></a></h2>
+<div class="section" id="module-scripts.user_interface">
+<span id="user-interface-module-user-interface"></span><h3>User Interface Module <a class="reference internal" href="#module-user_interface" title="user_interface: Python module for implement the user interface. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">user_interface</span></code></a><a class="headerlink" href="#module-scripts.user_interface" title="Permalink to this headline"></a></h3>
+<span class="target" id="module-user_interface"></span><p>This module implements the user interface of the program.
+It is developed with the curses library, dividing the terminal into windows and calling specific functions
+to print strings and receive user inputs. The class windows_organiser stores all information about the user
+interface and implements some modes to make the code slighter.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.user_interface.windows_organiser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.user_interface.</span></span><span class="sig-name descname"><span class="pre">windows_organiser</span></span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This class manages the user interface, dividing the terminal into windows.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.clear_info">
+<span class="sig-name descname"><span class="pre">clear_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.clear_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.clear_info" title="Permalink to this definition"></a></dt>
+<dd><p>This function clears the info window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.clear_input">
+<span class="sig-name descname"><span class="pre">clear_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.clear_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.clear_input" title="Permalink to this definition"></a></dt>
+<dd><p>This function clears the input window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.clear_modes">
+<span class="sig-name descname"><span class="pre">clear_modes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.clear_modes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.clear_modes" title="Permalink to this definition"></a></dt>
+<dd><p>This function clears the modes window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.clear_request">
+<span class="sig-name descname"><span class="pre">clear_request</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.clear_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.clear_request" title="Permalink to this definition"></a></dt>
+<dd><p>This function clears the request window.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.command_not_valid">
+<span class="sig-name descname"><span class="pre">command_not_valid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.command_not_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.command_not_valid" title="Permalink to this definition"></a></dt>
+<dd><p>This function sends the command not valid message into win_request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.set_wasd">
+<span class="sig-name descname"><span class="pre">set_wasd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.set_wasd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.set_wasd" title="Permalink to this definition"></a></dt>
+<dd><p>This function shows into the win_modes the command for directly drive the robot.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="driver-assistance-node-driver-assistance">
+<h3>Driver Assistance Node <code class="xref py py-mod docutils literal notranslate"><span class="pre">driver_assistance</span></code><a class="headerlink" href="#driver-assistance-node-driver-assistance" title="Permalink to this headline"></a></h3>
 <p>Node to drive the robot avoiding obstacles. </p>
 <p><p>Subscribes to:</p>
 <p>/base_scan</p>
@@ -126,7 +293,7 @@
 <p>/command</p>
 </p>
 <p>Description :</p>
-<p>This node aims to control the robot in drive assistance mode. Through the service * /command *, the user can increase or decrease the linear and angular velocity of the robot. Reading data from * /base_scan * the robot can know the distance from obstacles; then it is implemented a logic that allows the robot to move without hurting them. </p>
+<p>This node aims to control the robot in drive assistance mode. Through the service * /command*, the user can increase or decrease the linear and angular velocity of the robot. Reading data from * /base_scan* the robot can know the distance from obstacles; then it is implemented a logic that allows the robot to move without hurting them. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -220,6 +387,7 @@
 <dd><p>Publisher on cmd_vel. </p>
 </dd></dl>
 
+</div>
 </div>
 </div>
 </div>

@@ -9,6 +9,9 @@
     <includes local="yes">sensor_msgs/LaserScan.h</includes>
     <includes local="yes">final_assignment/Command.h</includes>
     <incdepgraph>
+      <node id="4">
+        <label>cmath</label>
+      </node>
       <node id="1">
         <label>src/driver_assistance.cpp</label>
         <link refid="driver__assistance_8cpp"/>
@@ -24,9 +27,6 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-      </node>
-      <node id="4">
-        <label>cmath</label>
       </node>
       <node id="5">
         <label>geometry_msgs/Twist.h</label>
@@ -183,11 +183,11 @@
 <parametername>msg</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>defines the message of type LaserScan published on the * /base_scan * topic.</para>
+<para>defines the message of type LaserScan published on the * /base_scan* topic.</para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-If the flag is_active is true, this function calls the * scanSectors * function, then the function * logic * implements the choice made through sectors. If the function * logic * does not take any decision, then the * integral_logic * function is called.</para>
+If the flag is_active is true, this function calls the * scanSectors * function, then the function <emphasis>logic</emphasis> implements the choice made through sectors. If the function <emphasis>logic</emphasis> does not take any decision, then the <emphasis>integral_logic</emphasis> function is called.</para>
         </inbodydescription>
         <location file="src/driver_assistance.cpp" line="61" column="6" bodyfile="src/driver_assistance.cpp" bodystart="61" bodyend="96" declfile="src/driver_assistance.cpp" declline="42" declcolumn="6"/>
       </memberdef>
@@ -285,7 +285,7 @@ This function implements the logical part of the code, choosing whether to drive
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-This function implements the second logical part of the code, and it&apos;s executed only when the first one can not make any choice. It can only turn the robot, and it does it based on the information included in the ranges vector. It computes the integral (calling the * integral * function) of the distance on the right-side and the left-side of the robot, obtaining the left and right area. Lastly, comparing these two values decides where to turn the robot; and calls the * drive * function to move it.</para>
+This function implements the second logical part of the code, and it&apos;s executed only when the first one can not make any choice. It can only turn the robot, and it does it based on the information included in the ranges vector. It computes the integral (calling the <emphasis>integral</emphasis> function) of the distance on the right-side and the left-side of the robot, obtaining the left and right area. Lastly, comparing these two values decides where to turn the robot; and calls the * drive * function to move it.</para>
         </inbodydescription>
         <location file="src/driver_assistance.cpp" line="182" column="6" bodyfile="src/driver_assistance.cpp" bodystart="182" bodyend="210" declfile="src/driver_assistance.cpp" declline="45" declcolumn="6"/>
       </memberdef>
@@ -464,7 +464,7 @@ Subscribes to: <linebreak/>
 <para>Services : <linebreak/>
  /command</para>
 <para>Description :</para>
-<para>This node aims to control the robot in drive assistance mode. Through the service * /command *, the user can increase or decrease the linear and angular velocity of the robot. Reading data from * /base_scan * the robot can know the distance from obstacles; then it is implemented a logic that allows the robot to move without hurting them. </para>
+<para>This node aims to control the robot in drive assistance mode. Through the service * /command*, the user can increase or decrease the linear and angular velocity of the robot. Reading data from * /base_scan* the robot can know the distance from obstacles; then it is implemented a logic that allows the robot to move without hurting them. </para>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"></codeline>
@@ -642,7 +642,7 @@ Subscribes to: <linebreak/>
 <codeline lineno="303"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="304"><highlight class="normal"></highlight></codeline>
 <codeline lineno="305"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>MAIN<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="306"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main<sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>argv<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="driver__assistance_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kindref="member">main</ref><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>argv<sp/>)<sp/>{</highlight></codeline>
 <codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Init<sp/>the<sp/>ros<sp/>node.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;driver_assistance&quot;</highlight><highlight class="normal">);</highlight></codeline>

@@ -7,10 +7,14 @@
 .. moduleauthor:: Ettore Sani
 
 This node allows the user to choose the drive modality between:
-:mode:`autonomous_driving` mode
-:mode:`free_drive` mode
-:mode:`drive_assistance` mode
-Using the user interface defined in the :module:`user_interface` module.
+
+* :mod:`autonomous_driving`
+
+* :mod:`free_drive`
+
+* :mod:`driver_assistance`
+
+It uses the user interface defined in the :mod:`user_interface` module.
 According to the user's choice, it gives the control to the corresponding module, and shows results on screen.
 
 """

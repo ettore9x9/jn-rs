@@ -6,6 +6,8 @@
 
 .. moduleauthor:: Ettore Sani
 
+This module stores the text used for the graphics of the user interface.
+
 """
 
 title = R"""              _      _       _                                   _

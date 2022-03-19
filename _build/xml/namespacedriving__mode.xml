@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/driving_mode.py" line="90" column="1" bodyfile="scripts/driving_mode.py" bodystart="90" bodyend="-1"/>
+        <location file="scripts/driving_mode.py" line="94" column="1" bodyfile="scripts/driving_mode.py" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacedriving__mode_1ae9db0541073fb07751250eb1f233367d" prot="public" static="no" mutable="no">
         <type></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/driving_mode.py" line="97" column="1" bodyfile="scripts/driving_mode.py" bodystart="97" bodyend="-1"/>
+        <location file="scripts/driving_mode.py" line="101" column="1" bodyfile="scripts/driving_mode.py" bodystart="101" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacedriving__mode_1addbd1d2c437db66b6d036a0142cf56a3" prot="public" static="no" mutable="no">
         <type></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/driving_mode.py" line="101" column="1" bodyfile="scripts/driving_mode.py" bodystart="101" bodyend="-1"/>
+        <location file="scripts/driving_mode.py" line="105" column="1" bodyfile="scripts/driving_mode.py" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacedriving__mode_1ae82000c76477b60f9556d1f85ecbb410" prot="public" static="no" mutable="no">
         <type></type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/driving_mode.py" line="117" column="1" bodyfile="scripts/driving_mode.py" bodystart="117" bodyend="-1"/>
+        <location file="scripts/driving_mode.py" line="121" column="1" bodyfile="scripts/driving_mode.py" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacedriving__mode_1a838bd3277fce35c32a0905eabfa1e5d9" prot="public" static="no" mutable="no">
         <type></type>
@@ -70,7 +70,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/driving_mode.py" line="117" column="1" bodyfile="scripts/driving_mode.py" bodystart="117" bodyend="-1"/>
+        <location file="scripts/driving_mode.py" line="121" column="1" bodyfile="scripts/driving_mode.py" bodystart="121" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -91,7 +91,7 @@ Returns:
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/driving_mode.py" line="30" column="1" bodyfile="scripts/driving_mode.py" bodystart="30" bodyend="77"/>
+        <location file="scripts/driving_mode.py" line="34" column="1" bodyfile="scripts/driving_mode.py" bodystart="34" bodyend="81"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -104,10 +104,14 @@ Returns:
 .. moduleauthor:: Ettore Sani
 
 This node allows the user to choose the drive modality between:
-:mode:`autonomous_driving` mode
-:mode:`free_drive` mode
-:mode:`drive_assistance` mode
-Using the user interface defined in the :module:`user_interface` module.
+
+* :mod:`autonomous_driving`
+
+* :mod:`free_drive`
+
+* :mod:`driver_assistance`
+
+It uses the user interface defined in the :mod:`user_interface` module.
 According to the user&apos;s choice, it gives the control to the corresponding module, and shows results on screen.</verbatim> </para>
     </detaileddescription>
     <location file="scripts/driving_mode.py" line="1" column="1"/>
