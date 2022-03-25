@@ -58,8 +58,10 @@ class autonomous_driving:
 
         """
         self.goal_counter += 1   # Increments the goal counter.
-        self.ui.win_info.addstr(2, 1, "Action Server is processing goal n "+str(self.goal_counter)+"... ")
-        self.ui.win_info.refresh()
+        
+        if self.ui != None:
+            self.ui.win_info.addstr(2, 1, "Action Server is processing goal n "+str(self.goal_counter)+"... ")
+            self.ui.win_info.refresh()
 
 
     def feedback_cb(self, feedback):
@@ -67,11 +69,12 @@ class autonomous_driving:
 
         """
         self.feedback_counter += 1   # Increments the feedback counter.
-
-        # Prints on the info window.
-        self.ui.win_info.addstr(3, 1, "Feedback for goal n "+str(self.goal_counter+1)+" received.          ")
-        self.ui.win_info.addstr(3, 31 + self.feedback_counter % 10, ">")
-        self.ui.win_info.refresh()
+        
+        if self.ui != None:
+            # Prints on the info window.
+            self.ui.win_info.addstr(3, 1, "Feedback for goal n "+str(self.goal_counter+1)+" received.          ")
+            self.ui.win_info.addstr(3, 31 + self.feedback_counter % 10, ">")
+            self.ui.win_info.refresh()
 
 
     def done_cb(self, status, result):
@@ -82,8 +85,12 @@ class autonomous_driving:
 
         """
         self.is_active = False   # The action client communication is not active.
+        
+        if self.ui == None:
+            return
+            
         self.ui.clear_modes()    # Clears the mode windows, c and n commands are no more available.
-
+        
         # Prints on the info window the status returned by the action server communication.
         if status == 2:
             self.ui.win_info.addstr(4, 1, "Goal n "+str(self.goal_counter)+" received a cancel request.")
@@ -122,10 +129,11 @@ class autonomous_driving:
 
         # Waits until the action server has started.
         self.client.wait_for_server()
-
-        # Prints the new commands available on the modes window.
-        self.ui.win_modes.addstr(3, 0, self.title)
-        self.ui.win_modes.refresh()
+        
+        if self.ui != None:
+            # Prints the new commands available on the modes window.
+            self.ui.win_modes.addstr(3, 0, self.title)
+            self.ui.win_modes.refresh()
 
         # Creates a goal to send to the action server.
         goal = MoveBaseGoal()
@@ -146,4 +154,5 @@ class autonomous_driving:
         """
         self.is_active = False
         self.client.cancel_goal()
-        self.ui.clear_modes()
+        if self.ui != None:
+            self.ui.clear_modes()
