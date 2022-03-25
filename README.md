@@ -2,6 +2,7 @@ Robotics simulator on ROS
 =============================
 
 >This ROS package aims to control an autonomous robot that wanders into an unknown map, equipped with a laser scanner and knowing its odometry.
+>Here you can find the [code documentation](https://ettore9x9.github.io/rt2_assignment/)
 
 Installing and running
 ----------------------
