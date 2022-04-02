@@ -299,37 +299,115 @@ interface and implements some modes to make the code slighter.</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv416functionCallbackRKN11sensor_msgs9LaserScan8ConstPtrE">
 <span id="_CPPv316functionCallbackRKN11sensor_msgs9LaserScan8ConstPtrE"></span><span id="_CPPv216functionCallbackRKN11sensor_msgs9LaserScan8ConstPtrE"></span><span id="functionCallback__sensor_msgs::LaserScan::ConstPtrCR"></span><span class="target" id="driver__assistance_8cpp_1a91c136bc3c91e4ea7a59bbbc1614109f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">functionCallback</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">sensor_msgs</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">LaserScan</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ConstPtr</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">msg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416functionCallbackRKN11sensor_msgs9LaserScan8ConstPtrE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Function callback for the base_scan subscriber. </p>
+<p>
+If the flag is_active is true, this function calls the * scanSectors * function, then the function <em>logic</em> implements the choice made through sectors. If the function <em>logic</em> does not take any decision, then the <em>integral_logic</em> function is called. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>msg</strong> – defines the message of type LaserScan published on the * /base_scan* topic.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv411scanSectorsPfPf">
 <span id="_CPPv311scanSectorsPfPf"></span><span id="_CPPv211scanSectorsPfPf"></span><span id="scanSectors__floatP.floatP"></span><span class="target" id="driver__assistance_8cpp_1ae6c8909be052898336f00323b26d5c36"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">scanSectors</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ranges</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sectors</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411scanSectorsPfPf" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Function to search for the closest obstacle in each sector. </p>
+<p>
+It fills sectors with the distance of the closest obstacle in this specific sector, searching in the ranges vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ranges</strong> – defines the vector provided by the laser scanner.</p></li>
+<li><p><strong>sectors</strong> – defines the vector to fill.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv45logicPf">
 <span id="_CPPv35logicPf"></span><span id="_CPPv25logicPf"></span><span id="logic__floatP"></span><span class="target" id="driver__assistance_8cpp_1a52631c8fff8878c9a417d113e429f8fb"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">logic</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sectors</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45logicPf" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Function that rapresents the robot’s logic implementation. </p>
+<p>
+This function implements the logical part of the code, choosing whether to drive the robot forward or to make it turn to avoid obstacles. It’s based on the information in the sectors vector, so previously filtered by the scanSector function. According to the choice made, it calls the drive function to move the robot. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sectors</strong> – defines the vector of distances.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>1 choice made 0 choice not made</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv414integral_logicPf">
 <span id="_CPPv314integral_logicPf"></span><span id="_CPPv214integral_logicPf"></span><span id="integral_logic__floatP"></span><span class="target" id="driver__assistance_8cpp_1a550dc2b19b6710b93b95e10e8c1ad593"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">integral_logic</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ranges</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414integral_logicPf" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Function to decide where to go when there are obstales all around the robot. </p>
+<p>
+This function implements the second logical part of the code, and it’s executed only when the first one can not make any choice. It can only turn the robot, and it does it based on the information included in the ranges vector. It computes the integral (calling the <em>integral</em> function) of the distance on the right-side and the left-side of the robot, obtaining the left and right area. Lastly, comparing these two values decides where to turn the robot; and calls the * drive * function to move it. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ranges</strong> – defines the vector provided by the laser scanner.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv48integralPfii">
 <span id="_CPPv38integralPfii"></span><span id="_CPPv28integralPfii"></span><span id="integral__floatP.i.i"></span><span class="target" id="driver__assistance_8cpp_1a948754fd289e606979801339f15c12aa"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">integral</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">values</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">start</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">end</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48integralPfii" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Function to perform a discrete integral with the trapezium method. </p>
+<p>
+The discrete integral is computed between start and end inclusive. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> – defines the vector on which it computes the discrete integral.</p></li>
+<li><p><strong>start</strong> – defines the index of the initial value.</p></li>
+<li><p><strong>end</strong> – defines the index of the final value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>double with the calculated area.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv45driveff">
 <span id="_CPPv35driveff"></span><span id="_CPPv25driveff"></span><span id="drive__float.float"></span><span class="target" id="driver__assistance_8cpp_1af5fbee6c549866cdf0a418f4a1b929ca"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">drive</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">straight</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">turn</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45driveff" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Function to drive the robot. </p>
+<p>
+This function fills the geometry message and publishes it on the topic * /cmd_vel *. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>straight</strong> – defines the linear velocity.</p></li>
+<li><p><strong>turn</strong> – defines the angular velocity.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv415server_responseRN16final_assignment7Command7RequestERN16final_assignment7Command8ResponseE">
 <span id="_CPPv315server_responseRN16final_assignment7Command7RequestERN16final_assignment7Command8ResponseE"></span><span id="_CPPv215server_responseRN16final_assignment7Command7RequestERN16final_assignment7Command8ResponseE"></span><span id="server_response__final_assignment::Command::RequestR.final_assignment::Command::ResponseR"></span><span class="target" id="driver__assistance_8cpp_1a5d7a455f1d58eb3e57a53289086ac114"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">server_response</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">final_assignment</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Command</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Request</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">req</span></span>, <span class="n"><span class="pre">final_assignment</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Command</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Response</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">res</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415server_responseRN16final_assignment7Command7RequestERN16final_assignment7Command8ResponseE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Function callback to the * /command * service. </p>
+<p>
+This function increases or decreases the speed of the motor depending on the message received and replies with the updated velocity. It also updates the robot’s distance break: which is proportional to its speed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>req</strong> – defines the service’s request.</p></li>
+<li><p><strong>res</strong> – defines the service’s response.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>always true.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiPPc">

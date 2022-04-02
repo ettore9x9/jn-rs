@@ -122,8 +122,10 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">goal_counter</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># Increments the goal counter.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Action Server is processing goal n &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">goal_counter</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;... &quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Action Server is processing goal n &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">goal_counter</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;... &quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="autonomous_driving.feedback_cb"><a class="viewcode-back" href="../../index.html#scripts.autonomous_driving.autonomous_driving.feedback_cb">[docs]</a>    <span class="k">def</span> <span class="nf">feedback_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feedback</span><span class="p">):</span>
@@ -131,11 +133,12 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">feedback_counter</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># Increments the feedback counter.</span>
-
-        <span class="c1"># Prints on the info window.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Feedback for goal n &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">goal_counter</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; received.          &quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">31</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_counter</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Prints on the info window.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Feedback for goal n &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">goal_counter</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; received.          &quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">31</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_counter</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="autonomous_driving.done_cb"><a class="viewcode-back" href="../../index.html#scripts.autonomous_driving.autonomous_driving.done_cb">[docs]</a>    <span class="k">def</span> <span class="nf">done_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
@@ -146,8 +149,12 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_active</span> <span class="o">=</span> <span class="kc">False</span>   <span class="c1"># The action client communication is not active.</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+            
         <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">clear_modes</span><span class="p">()</span>    <span class="c1"># Clears the mode windows, c and n commands are no more available.</span>
-
+        
         <span class="c1"># Prints on the info window the status returned by the action server communication.</span>
         <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Goal n &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">goal_counter</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; received a cancel request.&quot;</span><span class="p">)</span>
@@ -186,10 +193,11 @@
 
         <span class="c1"># Waits until the action server has started.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">wait_for_server</span><span class="p">()</span>
-
-        <span class="c1"># Prints the new commands available on the modes window.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_modes</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_modes</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Prints the new commands available on the modes window.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_modes</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">win_modes</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 
         <span class="c1"># Creates a goal to send to the action server.</span>
         <span class="n">goal</span> <span class="o">=</span> <span class="n">MoveBaseGoal</span><span class="p">()</span>
@@ -210,7 +218,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_active</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">cancel_goal</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">clear_modes</span><span class="p">()</span></div></div>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">clear_modes</span><span class="p">()</span></div></div>
 </pre></div>
 
            </div>
