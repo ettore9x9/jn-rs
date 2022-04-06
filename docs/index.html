@@ -101,7 +101,7 @@ According to the user’s choice, it gives the control to the corresponding modu
 <dl class="py function">
 <dt class="sig sig-object py" id="scripts.driving_mode.ask_for_goal">
 <span class="sig-prename descclassname"><span class="pre">scripts.driving_mode.</span></span><span class="sig-name descname"><span class="pre">ask_for_goal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/driving_mode.html#ask_for_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.driving_mode.ask_for_goal" title="Permalink to this definition"></a></dt>
-<dd><p>This function asks the user to input the x and the y position of the goal, and returns them as floating point.</p>
+<dd><p>This function asks the user to input the x and the y position of the goal, returning them as floating point.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>x position of the goal.
@@ -117,7 +117,7 @@ fy(float): y position of the goal.</p>
 <div class="section" id="module-scripts.autonomous_driving">
 <span id="autonomous-driving-module-autonomous-driving"></span><h3>Autonomous Driving Module <a class="reference internal" href="#module-autonomous_driving" title="autonomous_driving: Python module for autonomous driving modality. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">autonomous_driving</span></code></a><a class="headerlink" href="#module-scripts.autonomous_driving" title="Permalink to this headline"></a></h3>
 <span class="target" id="module-autonomous_driving"></span><dl class="simple">
-<dt>Action client:</dt><dd><p>/move_base to reach a desired position in space.</p>
+<dt>Action client:</dt><dd><p>/move_base</p>
 </dd>
 </dl>
 <p>This module implements the autonomous driving modality, which allows the robot to reach a specified position in space.
@@ -134,19 +134,19 @@ the /move_base node through action server.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.active_cb">
 <span class="sig-name descname"><span class="pre">active_cb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.active_cb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.active_cb" title="Permalink to this definition"></a></dt>
-<dd><p>This function executed when the communication starts.</p>
+<dd><p>This method executed when the communication starts.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.cancel_goal">
 <span class="sig-name descname"><span class="pre">cancel_goal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.cancel_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.cancel_goal" title="Permalink to this definition"></a></dt>
-<dd><p>This function sends a cancel request to the move_base server.</p>
+<dd><p>This method sends a cancel request to the move_base server.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.done_cb">
 <span class="sig-name descname"><span class="pre">done_cb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.done_cb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.done_cb" title="Permalink to this definition"></a></dt>
-<dd><p>This function is executed when the communication ends.</p>
+<dd><p>This method is executed when the communication ends.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – status returned by the action server.</p>
@@ -157,13 +157,13 @@ the /move_base node through action server.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.feedback_cb">
 <span class="sig-name descname"><span class="pre">feedback_cb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feedback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.feedback_cb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.feedback_cb" title="Permalink to this definition"></a></dt>
-<dd><p>This function is executed when a feedback is received.</p>
+<dd><p>This method is executed when a feedback is received.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.autonomous_driving.autonomous_driving.reach_goal">
 <span class="sig-name descname"><span class="pre">reach_goal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/autonomous_driving.html#autonomous_driving.reach_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.autonomous_driving.autonomous_driving.reach_goal" title="Permalink to this definition"></a></dt>
-<dd><p>This function sends a goal to the move base node, starting the action client communication.</p>
+<dd><p>This method sends a goal to the move base node, starting the action client communication.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -209,7 +209,7 @@ each time the user inputs a command, controlling directly the robot.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="scripts.free_drive.free_drive">
 <span class="sig-prename descclassname"><span class="pre">scripts.free_drive.</span></span><span class="sig-name descname"><span class="pre">free_drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ui</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/free_drive.html#free_drive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.free_drive.free_drive" title="Permalink to this definition"></a></dt>
-<dd><p>This function allows to drive directly the robot, controlling the speed publishing on the cmd_vel topic.</p>
+<dd><p>This function allows to drive directly the robot. Speed is controlled by publishing on the cmd_vel topic.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>ui</strong> (<a class="reference internal" href="#scripts.user_interface.windows_organiser" title="scripts.user_interface.windows_organiser"><em>windows_organiser</em></a>) – class for printing on the user interface.</p>
@@ -227,7 +227,7 @@ each time the user inputs a command, controlling directly the robot.</p>
 <span class="target" id="module-user_interface"></span><p>This module implements the user interface of the program.
 It is developed with the curses library, dividing the terminal into windows and calling specific functions
 to print strings and receive user inputs. The class windows_organiser stores all information about the user
-interface and implements some modes to make the code slighter.</p>
+interface and implements some methods to make the code slighter.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="scripts.user_interface.windows_organiser">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.user_interface.</span></span><span class="sig-name descname"><span class="pre">windows_organiser</span></span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser" title="Permalink to this definition"></a></dt>
@@ -236,37 +236,37 @@ interface and implements some modes to make the code slighter.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.clear_info">
 <span class="sig-name descname"><span class="pre">clear_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.clear_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.clear_info" title="Permalink to this definition"></a></dt>
-<dd><p>This function clears the info window.</p>
+<dd><p>This method clears the info window.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.clear_input">
 <span class="sig-name descname"><span class="pre">clear_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.clear_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.clear_input" title="Permalink to this definition"></a></dt>
-<dd><p>This function clears the input window.</p>
+<dd><p>This method clears the input window.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.clear_modes">
 <span class="sig-name descname"><span class="pre">clear_modes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.clear_modes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.clear_modes" title="Permalink to this definition"></a></dt>
-<dd><p>This function clears the modes window.</p>
+<dd><p>This method clears the modes window.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.clear_request">
 <span class="sig-name descname"><span class="pre">clear_request</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.clear_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.clear_request" title="Permalink to this definition"></a></dt>
-<dd><p>This function clears the request window.</p>
+<dd><p>This method clears the request window.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.command_not_valid">
 <span class="sig-name descname"><span class="pre">command_not_valid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.command_not_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.command_not_valid" title="Permalink to this definition"></a></dt>
-<dd><p>This function sends the command not valid message into win_request.</p>
+<dd><p>This method sends the command not valid message into win_request.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="scripts.user_interface.windows_organiser.set_wasd">
 <span class="sig-name descname"><span class="pre">set_wasd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/user_interface.html#windows_organiser.set_wasd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.user_interface.windows_organiser.set_wasd" title="Permalink to this definition"></a></dt>
-<dd><p>This function shows into the win_modes the command for directly drive the robot.</p>
+<dd><p>This method shows into the win_modes the command for directly drive the robot.</p>
 </dd></dl>
 
 </dd></dl>
@@ -293,7 +293,7 @@ interface and implements some modes to make the code slighter.</p>
 <p>/command</p>
 </p>
 <p>Description :</p>
-<p>This node aims to control the robot in drive assistance mode. Through the service * /command*, the user can increase or decrease the linear and angular velocity of the robot. Reading data from * /base_scan* the robot can know the distance from obstacles; then it is implemented a logic that allows the robot to move without hurting them. </p>
+<p>This node aims to control the robot in drive assistance mode. Through the service /command, the user can increase or decrease the linear and angular velocity of the robot. Reading data from /base_scan the robot can know the distance from obstacles; then it is implemented a logic that allows the robot to move without hurting them. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -301,10 +301,10 @@ interface and implements some modes to make the code slighter.</p>
 <span id="_CPPv316functionCallbackRKN11sensor_msgs9LaserScan8ConstPtrE"></span><span id="_CPPv216functionCallbackRKN11sensor_msgs9LaserScan8ConstPtrE"></span><span id="functionCallback__sensor_msgs::LaserScan::ConstPtrCR"></span><span class="target" id="driver__assistance_8cpp_1a91c136bc3c91e4ea7a59bbbc1614109f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">functionCallback</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">sensor_msgs</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">LaserScan</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ConstPtr</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">msg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416functionCallbackRKN11sensor_msgs9LaserScan8ConstPtrE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Function callback for the base_scan subscriber. </p>
 <p>
-If the flag is_active is true, this function calls the * scanSectors * function, then the function <em>logic</em> implements the choice made through sectors. If the function <em>logic</em> does not take any decision, then the <em>integral_logic</em> function is called. </p>
+If the flag <em>is_active</em> is true, this function calls the <em>scanSectors</em> function, then the function <em>logic</em> implements the choice made through sectors. If the function <em>logic</em> does not take any decision, then the <em>integral_logic</em> function is called. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>msg</strong> – defines the message of type LaserScan published on the * /base_scan* topic.</p>
+<dd class="field-odd"><p><strong>msg</strong> – defines the message of type LaserScan published on the /base_scan topic.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -330,7 +330,7 @@ It fills sectors with the distance of the closest obstacle in this specific sect
 <span id="_CPPv35logicPf"></span><span id="_CPPv25logicPf"></span><span id="logic__floatP"></span><span class="target" id="driver__assistance_8cpp_1a52631c8fff8878c9a417d113e429f8fb"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">logic</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sectors</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45logicPf" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Function that rapresents the robot’s logic implementation. </p>
 <p>
-This function implements the logical part of the code, choosing whether to drive the robot forward or to make it turn to avoid obstacles. It’s based on the information in the sectors vector, so previously filtered by the scanSector function. According to the choice made, it calls the drive function to move the robot. </p>
+This function implements the logical part of the code, choosing whether to drive the robot forward or to make it turn to avoid obstacles. It’s based on the information in the <em>sectors</em> vector, so previously filtered by the <em>scanSector</em> function. According to the choice made, it calls the <em>drive</em> function to move the robot. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>sectors</strong> – defines the vector of distances.</p>
@@ -346,7 +346,7 @@ This function implements the logical part of the code, choosing whether to drive
 <span id="_CPPv314integral_logicPf"></span><span id="_CPPv214integral_logicPf"></span><span id="integral_logic__floatP"></span><span class="target" id="driver__assistance_8cpp_1a550dc2b19b6710b93b95e10e8c1ad593"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">integral_logic</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">ranges</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414integral_logicPf" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Function to decide where to go when there are obstales all around the robot. </p>
 <p>
-This function implements the second logical part of the code, and it’s executed only when the first one can not make any choice. It can only turn the robot, and it does it based on the information included in the ranges vector. It computes the integral (calling the <em>integral</em> function) of the distance on the right-side and the left-side of the robot, obtaining the left and right area. Lastly, comparing these two values decides where to turn the robot; and calls the * drive * function to move it. </p>
+This function implements the second logical part of the code, and it’s executed only when the first one can not make any choice. It can only turn the robot, and it does it based on the information included in the <em>ranges</em> vector. It computes the integral (calling the <em>integral</em> function) of the distance on the right-side and the left-side of the robot, obtaining the left and right area. Lastly, comparing these two values decides where to turn the robot; and calls the <em>drive</em> function to move it. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>ranges</strong> – defines the vector provided by the laser scanner.</p>
@@ -379,7 +379,7 @@ The discrete integral is computed between start and end inclusive. </p>
 <span id="_CPPv35driveff"></span><span id="_CPPv25driveff"></span><span id="drive__float.float"></span><span class="target" id="driver__assistance_8cpp_1af5fbee6c549866cdf0a418f4a1b929ca"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">drive</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">straight</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">turn</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45driveff" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Function to drive the robot. </p>
 <p>
-This function fills the geometry message and publishes it on the topic * /cmd_vel *. </p>
+This function fills the <em>geometry_msg</em> and publishes it on the topic /cmd_vel. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -393,7 +393,7 @@ This function fills the geometry message and publishes it on the topic * /cmd_ve
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv415server_responseRN16final_assignment7Command7RequestERN16final_assignment7Command8ResponseE">
 <span id="_CPPv315server_responseRN16final_assignment7Command7RequestERN16final_assignment7Command8ResponseE"></span><span id="_CPPv215server_responseRN16final_assignment7Command7RequestERN16final_assignment7Command8ResponseE"></span><span id="server_response__final_assignment::Command::RequestR.final_assignment::Command::ResponseR"></span><span class="target" id="driver__assistance_8cpp_1a5d7a455f1d58eb3e57a53289086ac114"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">server_response</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">final_assignment</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Command</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Request</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">req</span></span>, <span class="n"><span class="pre">final_assignment</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Command</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Response</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">res</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415server_responseRN16final_assignment7Command7RequestERN16final_assignment7Command8ResponseE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Function callback to the * /command * service. </p>
+<dd><p>Function callback to the /command service. </p>
 <p>
 This function increases or decreases the speed of the motor depending on the message received and replies with the updated velocity. It also updates the robot’s distance break: which is proportional to its speed. </p>
 <dl class="field-list simple">
@@ -450,14 +450,12 @@ This function increases or decreases the speed of the motor depending on the mes
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv45front">
 <span id="_CPPv35front"></span><span id="_CPPv25front"></span><span id="front__i"></span><span class="target" id="driver__assistance_8cpp_1ac261b45b6346e633de22d510c9f6a770"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">front</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">floor</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv45nsect" title="nsect"><span class="n"><span class="pre">nsect</span></span></a><span class="w"> </span><span class="o"><span class="pre">/</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv45front" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Index of the frontal sector. </p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv412sector_nelem">
 <span id="_CPPv312sector_nelem"></span><span id="_CPPv212sector_nelem"></span><span id="sector_nelem__i"></span><span class="target" id="driver__assistance_8cpp_1a4e2bfb4f8d8f41126e011c2d9d2c3a52"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sector_nelem</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">floor</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">720</span></span><span class="w"> </span><span class="o"><span class="pre">/</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv45nsect" title="nsect"><span class="n"><span class="pre">nsect</span></span></a><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv412sector_nelem" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Number of laser surveys per sector. </p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv43pub">

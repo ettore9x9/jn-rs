@@ -9,7 +9,7 @@
 This module implements the user interface of the program.
 It is developed with the curses library, dividing the terminal into windows and calling specific functions 
 to print strings and receive user inputs. The class windows_organiser stores all information about the user 
-interface and implements some modes to make the code slighter.
+interface and implements some methods to make the code slighter.
 
 """
 
@@ -24,7 +24,7 @@ class windows_organiser:
 
     """
     def __init__(self):
-        """This function initialises the windows_organiser class.
+        """This method initialises the windows_organiser class.
 
         """
         self.stdscr = curses.initscr()         # Starts the curses standard screen.
@@ -45,7 +45,7 @@ class windows_organiser:
         self.win_request = curses.newwin(1, 35, 22, 0)   # Window for printing an input request.
 
     def clear_modes(self):
-        """This function clears the modes window. 
+        """This method clears the modes window. 
 
         """
         self.win_modes.clear()
@@ -53,7 +53,7 @@ class windows_organiser:
         self.win_modes.refresh()
 
     def clear_info(self):
-        """This function clears the info window. 
+        """This method clears the info window. 
 
         """
         self.win_info.clear()
@@ -61,21 +61,21 @@ class windows_organiser:
         self.win_info.refresh()
 
     def clear_input(self):
-        """This function clears the input window. 
+        """This method clears the input window. 
 
         """
         self.win_input.clear()
         self.win_input.refresh()
 
     def clear_request(self):
-        """This function clears the request window. 
+        """This method clears the request window. 
 
         """
         self.win_request.clear()
         self.win_request.refresh()
 
     def set_wasd(self):
-        """This function shows into the win_modes the command for directly drive the robot.
+        """This method shows into the win_modes the command for directly drive the robot.
 
         """
         self.win_modes.clear()
@@ -83,7 +83,7 @@ class windows_organiser:
         self.win_modes.refresh()
 
     def command_not_valid(self):
-        """ This function sends the command not valid message into win_request.
+        """ This method sends the command not valid message into win_request.
 
         """
         self.win_request.clear()

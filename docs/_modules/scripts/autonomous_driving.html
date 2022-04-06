@@ -71,7 +71,7 @@
 <span class="sd">.. moduleauthor:: Ettore Sani</span>
 
 <span class="sd">Action client:</span>
-<span class="sd">    /move_base to reach a desired position in space.</span>
+<span class="sd">    /move_base</span>
 
 <span class="sd">This module implements the autonomous driving modality, which allows the robot to reach a specified position in space.</span>
 <span class="sd">The program sends a goal to the action server /move_base, receiving feedbacks and monitoring the status until the goal </span>
@@ -96,7 +96,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_interface</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function initialises the autonomous_driving class.</span>
+        <span class="sd">&quot;&quot;&quot;This method initialises the autonomous_driving class.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">           user_interface(windows_organiser): class for printing on the user interface.</span>
@@ -118,7 +118,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">user_interface</span>
 
 <div class="viewcode-block" id="autonomous_driving.active_cb"><a class="viewcode-back" href="../../index.html#scripts.autonomous_driving.autonomous_driving.active_cb">[docs]</a>    <span class="k">def</span> <span class="nf">active_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function executed when the communication starts.</span>
+        <span class="sd">&quot;&quot;&quot;This method executed when the communication starts.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">goal_counter</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># Increments the goal counter.</span>
@@ -129,7 +129,7 @@
 
 
 <div class="viewcode-block" id="autonomous_driving.feedback_cb"><a class="viewcode-back" href="../../index.html#scripts.autonomous_driving.autonomous_driving.feedback_cb">[docs]</a>    <span class="k">def</span> <span class="nf">feedback_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feedback</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function is executed when a feedback is received.</span>
+        <span class="sd">&quot;&quot;&quot;This method is executed when a feedback is received.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">feedback_counter</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># Increments the feedback counter.</span>
@@ -142,7 +142,7 @@
 
 
 <div class="viewcode-block" id="autonomous_driving.done_cb"><a class="viewcode-back" href="../../index.html#scripts.autonomous_driving.autonomous_driving.done_cb">[docs]</a>    <span class="k">def</span> <span class="nf">done_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function is executed when the communication ends.</span>
+        <span class="sd">&quot;&quot;&quot;This method is executed when the communication ends.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            status(int): status returned by the action server.</span>
@@ -182,7 +182,7 @@
             <span class="k">return</span></div>
 
 <div class="viewcode-block" id="autonomous_driving.reach_goal"><a class="viewcode-back" href="../../index.html#scripts.autonomous_driving.autonomous_driving.reach_goal">[docs]</a>    <span class="k">def</span> <span class="nf">reach_goal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function sends a goal to the move base node, starting the action client communication.</span>
+        <span class="sd">&quot;&quot;&quot;This method sends a goal to the move base node, starting the action client communication.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            x(float): x goal position of the robot</span>
@@ -213,7 +213,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">done_cb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_cb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_cb</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="autonomous_driving.cancel_goal"><a class="viewcode-back" href="../../index.html#scripts.autonomous_driving.autonomous_driving.cancel_goal">[docs]</a>    <span class="k">def</span> <span class="nf">cancel_goal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function sends a cancel request to the move_base server.</span>
+        <span class="sd">&quot;&quot;&quot;This method sends a cancel request to the move_base server.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_active</span> <span class="o">=</span> <span class="kc">False</span>

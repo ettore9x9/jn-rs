@@ -73,7 +73,7 @@
 <span class="sd">This module implements the user interface of the program.</span>
 <span class="sd">It is developed with the curses library, dividing the terminal into windows and calling specific functions </span>
 <span class="sd">to print strings and receive user inputs. The class windows_organiser stores all information about the user </span>
-<span class="sd">interface and implements some modes to make the code slighter.</span>
+<span class="sd">interface and implements some methods to make the code slighter.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -88,7 +88,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function initialises the windows_organiser class.</span>
+        <span class="sd">&quot;&quot;&quot;This method initialises the windows_organiser class.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stdscr</span> <span class="o">=</span> <span class="n">curses</span><span class="o">.</span><span class="n">initscr</span><span class="p">()</span>         <span class="c1"># Starts the curses standard screen.</span>
@@ -109,7 +109,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">win_request</span> <span class="o">=</span> <span class="n">curses</span><span class="o">.</span><span class="n">newwin</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># Window for printing an input request.</span>
 
 <div class="viewcode-block" id="windows_organiser.clear_modes"><a class="viewcode-back" href="../../index.html#scripts.user_interface.windows_organiser.clear_modes">[docs]</a>    <span class="k">def</span> <span class="nf">clear_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function clears the modes window. </span>
+        <span class="sd">&quot;&quot;&quot;This method clears the modes window. </span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">win_modes</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -117,7 +117,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">win_modes</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="windows_organiser.clear_info"><a class="viewcode-back" href="../../index.html#scripts.user_interface.windows_organiser.clear_info">[docs]</a>    <span class="k">def</span> <span class="nf">clear_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function clears the info window. </span>
+        <span class="sd">&quot;&quot;&quot;This method clears the info window. </span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -125,21 +125,21 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">win_info</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="windows_organiser.clear_input"><a class="viewcode-back" href="../../index.html#scripts.user_interface.windows_organiser.clear_input">[docs]</a>    <span class="k">def</span> <span class="nf">clear_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function clears the input window. </span>
+        <span class="sd">&quot;&quot;&quot;This method clears the input window. </span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">win_input</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">win_input</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="windows_organiser.clear_request"><a class="viewcode-back" href="../../index.html#scripts.user_interface.windows_organiser.clear_request">[docs]</a>    <span class="k">def</span> <span class="nf">clear_request</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function clears the request window. </span>
+        <span class="sd">&quot;&quot;&quot;This method clears the request window. </span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">win_request</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">win_request</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="windows_organiser.set_wasd"><a class="viewcode-back" href="../../index.html#scripts.user_interface.windows_organiser.set_wasd">[docs]</a>    <span class="k">def</span> <span class="nf">set_wasd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This function shows into the win_modes the command for directly drive the robot.</span>
+        <span class="sd">&quot;&quot;&quot;This method shows into the win_modes the command for directly drive the robot.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">win_modes</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -147,7 +147,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">win_modes</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="windows_organiser.command_not_valid"><a class="viewcode-back" href="../../index.html#scripts.user_interface.windows_organiser.command_not_valid">[docs]</a>    <span class="k">def</span> <span class="nf">command_not_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; This function sends the command not valid message into win_request.</span>
+        <span class="sd">&quot;&quot;&quot; This method sends the command not valid message into win_request.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">win_request</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>

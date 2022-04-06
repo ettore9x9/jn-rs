@@ -24,7 +24,7 @@ from geometry_msgs.msg import Twist
 
 ### CODE ###
 def free_drive(ui):
-    """This function allows to drive directly the robot, controlling the speed publishing on the cmd_vel topic.
+    """This function allows to drive directly the robot. Speed is controlled by publishing on the cmd_vel topic.
 
     Args:
        ui(windows_organiser): class for printing on the user interface.

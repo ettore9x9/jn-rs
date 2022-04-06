@@ -23,9 +23,9 @@
  *
  * Description :
  *
- * This node aims to control the robot in drive assistance mode. Through the service * /command*, the user can 
+ * This node aims to control the robot in drive assistance mode. Through the service /command, the user can 
  * increase or decrease the linear and angular velocity of the robot.
- * Reading data from * /base_scan* the robot can know the distance from obstacles; then it is implemented 
+ * Reading data from /base_scan the robot can know the distance from obstacles; then it is implemented 
  * a logic that allows the robot to move without hurting them.
  *
  */
@@ -53,8 +53,8 @@ float d_br;                                   ///< Alert distance for avoiding o
 float speed;								  ///< Linear speed of the robot.
 float turn;                                   ///< Angular speed of the robot.
 int nsect = 9; 								  ///< Number of sectors.
-int front = std::floor( nsect / 2 );          ///< Index of the frontal sector.
-int sector_nelem = std::floor( 720/nsect );   ///< Number of laser surveys per sector.
+int front = std::floor( nsect / 2 );          //   Index of the frontal sector.
+int sector_nelem = std::floor( 720/nsect );   //   Number of laser surveys per sector.
 ros::Publisher pub;                           ///< Publisher on cmd_vel.
 
 /* FUNCTIONS */
@@ -62,9 +62,9 @@ ros::Publisher pub;                           ///< Publisher on cmd_vel.
  * 
  * \brief Function callback for the base_scan subscriber.
  * 
- * \param msg defines the message of type LaserScan published on the * /base_scan* topic.
+ * \param msg defines the message of type LaserScan published on the /base_scan topic.
  *
- * If the flag is_active is true, this function calls the * scanSectors * function, then the function *logic*
+ * If the flag *is_active* is true, this function calls the *scanSectors* function, then the function *logic*
  * implements the choice made through sectors. 
  * If the function *logic* does not take any decision, then the *integral_logic* function is called.
  * 
@@ -133,8 +133,8 @@ void scanSectors( float * ranges, float * sectors ) {
  *
  * This function implements the logical part of the code, choosing whether to drive the robot forward or 
  * to make it turn to avoid obstacles. 
- * It's based on the information in the sectors vector, so previously filtered by the scanSector function. 
- * According to the choice made, it calls the drive function to move the robot.
+ * It's based on the information in the *sectors* vector, so previously filtered by the *scanSector* function. 
+ * According to the choice made, it calls the *drive* function to move the robot.
  * 
  */
 int logic( float * sectors ) {
@@ -187,9 +187,9 @@ int logic( float * sectors ) {
  *
  * This function implements the second logical part of the code, and it's executed only when the first one 
  * can not make any choice. It can only turn the robot, and it does it based on the information included in 
- * the ranges vector. It computes the integral (calling the *integral* function) of the distance on the 
+ * the *ranges* vector. It computes the integral (calling the *integral* function) of the distance on the 
  * right-side and the left-side of the robot, obtaining the left and right area. 
- * Lastly, comparing these two values decides where to turn the robot; and calls the * drive * function 
+ * Lastly, comparing these two values decides where to turn the robot; and calls the *drive* function 
  * to move it.
  * 
  */
@@ -241,7 +241,7 @@ double integral( float * values, int start, int end ) {
  * 
  * \param turn defines the angular velocity.
  * 
- * This function fills the geometry message and publishes it on the topic * /cmd_vel *.
+ * This function fills the *geometry_msg* and publishes it on the topic /cmd_vel.
  * 
  */
 void drive( float straight, float turn ) {
@@ -254,7 +254,7 @@ void drive( float straight, float turn ) {
 
 /**
  * 
- * \brief Function callback to the * /command * service.
+ * \brief Function callback to the /command service.
  * 
  * \param req defines the service's request.
  * 

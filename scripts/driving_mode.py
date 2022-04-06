@@ -32,11 +32,11 @@ import client_drive_assistance
 
 ### FUNCTION ###
 def ask_for_goal():
-    """This function asks the user to input the x and the y position of the goal, and returns them as floating point.
+    """This function asks the user to input the x and the y position of the goal, returning them as floating point.
 
     Returns:
-       fx(float): x position of the goal.
-       fy(float): y position of the goal.
+		fx(float): x position of the goal.
+		fy(float): y position of the goal.
 
     """
     while True:

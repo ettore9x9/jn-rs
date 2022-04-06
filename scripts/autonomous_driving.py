@@ -7,7 +7,7 @@
 .. moduleauthor:: Ettore Sani
 
 Action client:
-    /move_base to reach a desired position in space.
+    /move_base
 
 This module implements the autonomous driving modality, which allows the robot to reach a specified position in space.
 The program sends a goal to the action server /move_base, receiving feedbacks and monitoring the status until the goal 
@@ -32,7 +32,7 @@ class autonomous_driving:
 
     """
     def __init__(self, user_interface):
-        """This function initialises the autonomous_driving class.
+        """This method initialises the autonomous_driving class.
 
         Args:
            user_interface(windows_organiser): class for printing on the user interface.
@@ -54,7 +54,7 @@ class autonomous_driving:
         self.ui = user_interface
 
     def active_cb(self):
-        """This function executed when the communication starts.
+        """This method executed when the communication starts.
 
         """
         self.goal_counter += 1   # Increments the goal counter.
@@ -65,7 +65,7 @@ class autonomous_driving:
 
 
     def feedback_cb(self, feedback):
-        """This function is executed when a feedback is received.
+        """This method is executed when a feedback is received.
 
         """
         self.feedback_counter += 1   # Increments the feedback counter.
@@ -78,7 +78,7 @@ class autonomous_driving:
 
 
     def done_cb(self, status, result):
-        """This function is executed when the communication ends.
+        """This method is executed when the communication ends.
 
         Args:
             status(int): status returned by the action server.
@@ -118,7 +118,7 @@ class autonomous_driving:
             return
 
     def reach_goal(self, x, y):
-        """This function sends a goal to the move base node, starting the action client communication.
+        """This method sends a goal to the move base node, starting the action client communication.
 
         Args:
             x(float): x goal position of the robot
@@ -149,7 +149,7 @@ class autonomous_driving:
         self.client.send_goal(goal, self.done_cb, self.active_cb, self.feedback_cb)
 
     def cancel_goal(self):
-        """This function sends a cancel request to the move_base server.
+        """This method sends a cancel request to the move_base server.
 
         """
         self.is_active = False
