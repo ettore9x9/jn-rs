@@ -53,8 +53,8 @@ float d_br;                                   ///< Alert distance for avoiding o
 float speed;								  ///< Linear speed of the robot.
 float turn;                                   ///< Angular speed of the robot.
 int nsect = 9; 								  ///< Number of sectors.
-int front = std::floor( nsect / 2 );          //   Index of the frontal sector.
-int sector_nelem = std::floor( 720/nsect );   //   Number of laser surveys per sector.
+int front = std::floor( nsect / 2 );          ///< Index of the frontal sector.
+int sector_nelem = std::floor( 720/nsect );   ///< Number of laser surveys per sector.
 ros::Publisher pub;                           ///< Publisher on cmd_vel.
 
 /* FUNCTIONS */
