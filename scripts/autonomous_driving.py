@@ -152,6 +152,7 @@ class autonomous_driving:
         """This method sends a cancel request to the move_base server.
 
         """
+        
         self.is_active = False
         self.client.cancel_goal()
         if self.ui != None:
